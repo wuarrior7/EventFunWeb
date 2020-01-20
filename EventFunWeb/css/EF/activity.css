@@ -1,0 +1,28 @@
+#activity h3{
+    font-size: 150%;
+}
+#activity p{
+    font-size: 80%;
+}
+.divtitle{
+    font-size: 50px;
+}
+.overlay h1{
+    margin-top: 100px;
+}
+.AD {
+    margin-top: 70px;
+    border: 1vh;
+    height: 215px;
+    line-height:1.2;
+}
+.AD #ad-t{
+    font-size: 15px;
+
+}
+.AD img{
+    margin-bottom: 0rem;
+}
+.search{
+	width: 0px;
+}

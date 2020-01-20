@@ -1,0 +1,117 @@
+﻿@model IEnumerable<EventFunWeb.t一般會員>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.f會員帳號)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f會員密碼)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f會員信箱)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f會員名稱)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f會員性別)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f出生年月日)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f會員簡介)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f會員行動電話)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f地址)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f會員照片)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f帳號狀態)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f上次登入時間)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f創建時間)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.t地區.f城市編號)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.t城市.f城市名稱)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.f會員帳號)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f會員密碼)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f會員信箱)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f會員名稱)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f會員性別)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f出生年月日)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f會員簡介)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f會員行動電話)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f地址)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f會員照片)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f帳號狀態)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f上次登入時間)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f創建時間)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.t地區.f城市編號)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.t城市.f城市名稱)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.f會員編號 }) |
+            @Html.ActionLink("Details", "Details", new { id=item.f會員編號 }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.f會員編號 })
+        </td>
+    </tr>
+}
+
+</table>

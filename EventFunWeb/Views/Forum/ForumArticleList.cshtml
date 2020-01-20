@@ -1,0 +1,168 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Style{
+    <style>
+
+
+        .buttonfont {
+            color: white;
+        }
+
+        .titlestyle {
+            text-align: center;
+            color: #2f5597;
+            font-weight: 700;
+        }
+    </style>
+}
+<div class="site-wrap">
+
+    <div class="site-mobile-menu">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(../images/hero_1.jpg);"
+         data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
+
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 text-center">
+                            <h1 style="margin-top:150px">論壇</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="activity" class="activity site-section bg-light">
+        <div class="container bg-white">
+            @{
+                string topicName = ViewBag.topicName;
+                if (!topicName.IsEmpty())
+                {
+                    <div class="titlestyle" style="font-size:30px">@ViewBag.topicName</div>
+                }
+            }
+
+            <div class="row">
+                <div class="col-lg-3">
+                    @{
+
+                        if (topicName != "全部")
+                        {
+                            <a href=@Url.Action("ForumArticleNew","Forum",new { topicid = ViewBag.topicid}) class="btn btn-danger">我要發文</a>
+                        }
+                    }
+
+                    <div id="search"  class="mb-5">
+                        <h3 class="h5 mb-3 titlestyle">搜尋</h3>
+                        <hr>
+                        <form action="~/Forum/ForumArticleList" method="post">
+                            <!-- 搜尋-關鍵字 -->
+                            <div class="form-group">
+                                <input type="text" name="f文章標題" placeholder="文章搜尋" class=" form-control">
+                                <input type="hidden" name="f主題編號" value="@ViewBag.topicid">
+                            </div>
+                            <div class="search">
+                                <button class="btn btn-primary buttonfont" type="submit" style="margin:20px 0px; ">開始搜尋</button>
+                            </div>
+                        </form>
+                        <form>
+                            <div>
+                                <h3 class="h5  mb-3 titlestyle">選擇主題</h3>
+                                <!--主題選擇-->
+                                <div class="row">
+                                    @Html.Action("_TopicPartial", "Forum")
+
+                                </div>
+                                <hr />
+
+
+                                @*<table class="table">
+                <tr>
+                    <td class="btn btn-light"><a href=@Url.Action("ForumArticleList", "Forum", new {topicName = "休閒" }) style="color:black">休閒</a></td>
+                    <td class="btn btn-light"><a href=@Url.Action("ForumArticleList", "Forum", new {topicName = "運動" }) style="color:black">運動</a></td>
+                    <td class="btn btn-light"><a href=@Url.Action("ForumArticleList", "Forum", new {topicName = "" }) style="color:black">表演</a></td>
+                    <td class="btn btn-light"><a href=@Url.Action("ForumArticleList", "Forum", new {topicName = "" }) style="color:black">音樂</a></td>
+                    <td class="btn btn-light"><a href=@Url.Action("ForumArticleList", "Forum", new {topicName = "" }) style="color:black">影視</a></td>
+                </tr>
+                <tr>
+
+                    <td class="btn btn-light"><a href=@Url.Action("ForumArticleList", "Forum", new {topicName = "" }) style="color:black">展覽</a></td>
+                    <td class="btn btn-light"><a href=@Url.Action("ForumArticleList", "Forum", new {topicName = "" }) style="color:black">學習</a></td>
+                    <td class="btn btn-light"><a href=@Url.Action("ForumArticleList", "Forum", new {topicName = "" }) style="color:black">比賽</a></td>
+                    <td class="btn btn-light"><a href=@Url.Action("ForumArticleList", "Forum", new {topicName = "" }) style="color:black">宗教</a></td>
+                    <td class="btn btn-light"><a href=@Url.Action("ForumArticleList", "Forum", new {topicName = "" }) style="color:black">校園</a></td>
+                </tr>
+                <tr>
+
+                    <td class="btn btn-light"><a href=@Url.Action("ForumArticleList", "Forum", new {topicName = "" }) style="color:black">公益</a></td>
+                    <td class="btn btn-light"><a href=@Url.Action("ForumArticleList", "Forum", new {topicName = "" }) style="color:black">售票</a></td>
+                </tr>
+            </table>*@
+                            </div>
+
+
+                            <!-- 廣告 -->
+                            @Html.Action("_ADListVerticalPartial","AD")
+                            <!-- 廣告 -->
+                        </form>
+                    </div>
+
+                </div>
+
+
+
+
+                <!-- 搜尋區塊 -->
+                <div class="col-lg-9 ml-auto">
+                    <!-- 文章清單 -->
+                    @*<div><h3 class="h5 text-black mb-3">@Model[0].f主題名稱</h3></div>*@
+
+                    <table class="table">
+                        <tr>
+                            <th>全部文章 最新  熱門  熱帖  精華</th>
+                            <th>作者</th>
+                            <th>回覆/瀏覽</th>
+                            <th>最後發表</th>
+                        </tr>
+
+                        @foreach (t論壇文章資料表 article in Model)
+                        {
+                            <tr>
+                                <td><em>@article.主題名稱</em><br /><a href=@Url.Action("ForumArticleDetail","Forum",new {aId = @article.f文章編號, topicName = @topicName, click = true})>@article.f文章標題</a></td>
+                                <td>@article.會員名稱<br />@article.f發布時間</td>
+                                <td>@article.樓層數<br />@article.f文章瀏覽數</td>
+                                <td>@article.最新發表會員<br />@article.f最新發布時間</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+            <!-- 頁數 -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</div>

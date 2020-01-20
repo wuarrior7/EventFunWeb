@@ -1,0 +1,65 @@
+﻿
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="row mt">
+            <div class="col-lg-12">
+                <div class="row content-panel">
+                    <div class="col-md-4 profile-text mt mb centered">
+                        <div class="right-divider hidden-sm hidden-xs">
+                            <div class="profile-pic">
+                                <p>
+                                    <img style="height:250px; width:250px;" src="~/Content/images/admin/@Model.f個人照片" class="img-circle">
+                                </p>
+                                <h3>@Model.f管理者名稱</h3>
+                                <h6>EventFun Admin</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /col-md-4 -->
+                    <div class="col-md-4 profile-text">
+                        <h3>個人資訊</h3>
+                        
+                        <p>
+                            帳號：
+                            <span>@Model.f管理者帳號</span>
+                        </p>
+                        <p>
+                            電話：
+                            <span>@Model.f管理者電話</span>
+                        </p>
+                        <p>
+                            地址：
+                            <span>@Model.f地址</span>
+                        </p>
+                        <p>
+                            信箱：
+                            <span>@Model.f管理者信箱</span>
+                        </p>
+                        <p>
+                            簡介：
+                            <span>@Model.f簡介</span>
+                        </p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            修改
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1000px;">
+                                <div class="modal-content">
+
+                                    <div class="modal-body">
+                                        @Html.Action("_AdminEditPartial", "Admin")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal -->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

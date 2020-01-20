@@ -1,0 +1,163 @@
+﻿@model EventFunWeb.t企業會員
+<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+    <div class="col-md-4 profile-text mt mb centered">
+        <div class="right-divider hidden-sm hidden-xs">
+            <div class="profile-pic">
+                @if (Model.f企業照片 == null)
+                {
+                    <p><img src="~/Content/images/company/xx.png" style="width:500px ;height:500px" id="editimg"></p>
+                }
+                else
+                {
+                    <p><img src="~/Content/images/company/@Model.f企業照片" style="width:500px ;height:500px" id="editimg"></p>
+                }
+                <h3>企業名稱</h3>
+                <h6>@Model.f企業名稱</h6>
+            </div>
+        </div>
+    </div>
+    <!-- /col-md-4 -->
+    <form action="~/CompanyMgt/_CompanyEditSavePartial" enctype="multipart/form-data" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.f企業編號)
+            <div class="form-group">
+                @Html.Label("企業圖片上傳", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="photo" id="imgIpt" /><br />
+                    <input type="hidden" name="f企業照片" value="@Model.f企業照片" />
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("企業統編", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" name="f統一編號" readonly="readonly" value="@Model.f統一編號" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.f統一編號, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("企業帳號", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" name="f企業帳號" readonly="readonly" value="@Model.f企業帳號" class="form-control" />
+                    <input type="hidden" name="f企業密碼" value="@Model.f企業密碼" />
+                    @Html.ValidationMessageFor(model => model.f企業帳號, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("帳號創建日期", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" name="f企業創建日期" value="@Model.f企業創建日期" class="form-control" readonly="readonly" />
+                    @Html.ValidationMessageFor(model => model.f企業創建日期, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.f企業密碼, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.f企業密碼, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.f企業密碼, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                @Html.Label("企業名稱", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" name="f企業名稱" value="@Model.f企業名稱" class="form-control" required="required" />
+                    @Html.ValidationMessageFor(model => model.f企業名稱, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("企業簡介", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <textarea name="f企業簡介" style="width:900px;height:300px;" class="form-control">@Model.f企業簡介</textarea>
+                    @Html.ValidationMessageFor(model => model.f企業簡介, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("企業電話", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.f企業電話, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.f企業電話, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("公司所在城市", "f城市編號", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("f城市編號", null, htmlAttributes: new { id="City", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.f城市編號, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("公司所在地區", "f郵遞區號", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("f郵遞區號", null, htmlAttributes: new { id = "District", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.f郵遞區號, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("企業地址", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.f企業地址, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.f企業地址, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("聯絡人", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.f聯絡人, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.f聯絡人, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("聯絡人行動電話", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.f聯絡人行動電話, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.f聯絡人行動電話, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.f企業照片, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.f企業照片, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.f企業照片, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                @Html.Label("企業信箱", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="email" name="f企業信箱" value="@Model.f企業信箱" class="form-control" required="required" />
+                    <input type="hidden" name="f企業帳號狀態" value="@Model.f企業帳號狀態" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.f企業信箱, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.f企業帳號狀態, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+
+                            @Html.ValidationMessageFor(model => model.f企業帳號狀態, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="儲存" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

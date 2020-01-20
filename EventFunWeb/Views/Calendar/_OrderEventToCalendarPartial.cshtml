@@ -1,0 +1,19 @@
+﻿@model IEnumerable<EventFunWeb.t活動場次>
+
+@foreach (var item in Model)
+{
+    string eventName = item.t活動日期.t活動.f活動名稱;
+    string date = item.t活動日期.f日期.Value.ToString("yyyy-MM-dd");
+    string title = item.t活動日期.t活動.f活動名稱 + item.f場次名稱;
+    <button class="datetest" value="@date" name="@item.f場次編號" style="background-color:green;color:white;width:150px;font-size:smaller">@eventName</button>
+    <div id="@item.f場次編號" hidden="hidden" style="font-size:smaller">
+        <span>場次 :</span><br />
+        <span>@item.f場次名稱</span><br />
+        <span>活動日期 :</span><br />
+        <span>@item.t活動日期.f日期.Value.ToString("yyyy-MM-dd")</span><br />
+        <span>開始時間 :</span><br />
+        <span>@item.f開始時間</span><br />
+        <span>結束時間 :</span><br />
+        <span>@item.f結束時間</span><br />
+    </div>
+}

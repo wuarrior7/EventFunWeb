@@ -1,0 +1,35 @@
+﻿@model EventFunWeb.t企業會員
+
+
+<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+    <div class="col-md-4 profile-text mt mb centered">
+        <div class="right-divider hidden-sm hidden-xs">
+            <div class="profile-pic">
+                @if (Model.f企業照片 == null)
+                {
+                    <p><img src="~/Content/images/company/xx.png" style="width:500px ;height:500px" ></p>
+                }
+                else
+                {
+                    <p><img src="~/Content/images/company/@Model.f企業照片" style="width:500px ;height:500px"></p>
+                }
+                <h3>企業名稱</h3>
+                <h6>@Model.f企業名稱</h6>
+            </div>
+        </div>
+    </div>
+    <h4>企業會員</h4>
+    <hr />
+    <p>企業統編：<span>@Model.f統一編號</span></p>
+    <p>企業名稱：<span>@Model.f企業名稱</span></p>
+    <p>企業帳號：<span>@Model.f企業帳號</span></p>
+    <p>企業信箱：<span>@Model.f企業信箱</span></p>
+    <p>企業電話：<span>@Model.f企業電話</span></p>
+    <p>企業地址：<span>@Model.f企業地址</span></p>
+    <p>企業聯絡人：<span>@Model.f聯絡人</span></p>
+    <p>企業聯絡人電話：<span>@Model.f聯絡人行動電話</span></p>
+    <p>企業帳號創建日期：<span>@Model.f企業創建日期</span></p>
+    <p>企業簡介：<span>@Model.f企業簡介</span></p>
+
+    <dl class="dl-horizontal"></dl>
+</div>

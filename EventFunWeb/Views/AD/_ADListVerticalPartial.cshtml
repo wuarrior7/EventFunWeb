@@ -1,0 +1,18 @@
+﻿@model IEnumerable<EventFunWeb.t廣告>
+
+@foreach (var item in Model)
+{
+    <div class="form-group AD">
+        
+        <figure class="mb-4">
+            <a href="@item.f廣告網址">
+                <img src="~/Content/images/AD/@item.f廣告圖片" class="img-fluid mb-3">
+                <span style="text-align:center">@item.f廣告名稱</span>
+
+            </a>
+                <br>
+        </figure>
+        
+    </div>
+
+}

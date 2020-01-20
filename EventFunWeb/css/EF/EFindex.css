@@ -1,0 +1,38 @@
+﻿*{
+    
+}
+
+body {
+}
+header span {
+    color: rgb(255,255,255);
+    color: #2f5597;
+    font-weight:900;
+}
+
+.site-top-icons {
+    background: none;
+    color: #ffd966;
+}
+
+.btn {
+    background-color: #2f5597;
+    border-color:#2f5597;
+}
+.site-section a:hover .number {
+    background-color: white;
+    border-color: white;
+    color:#2f5597;
+}
+.site-section .listing-item-content{
+    background: rgba(0,0,0,0.5);
+    transform: translateY(17%);
+}
+listing-image{
+    background: blue;
+}
+header .icon-menu{
+    position: fixed;
+    top:20px;
+    right: 20px;
+}

@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "AdminIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style{}
+<div class="site-blocks-cover inner-page-cover overlay " style="background-image: url(../images/hero_1.jpg); opacity: 0.5; font-family:微軟正黑體; min-height: 140px; height: calc(15vh);"
+     data-aos="fade" data-stellar-background-ratio="0.5">
+
+</div>
+
+
+<div class="site-section bg-light" style="font-family:微軟正黑體">
+    <div class="container bg-white" style="margin-top: 20px; padding:20px; ">
+        <div class="row">
+            @*左側可切換選單*@
+            @*class設定active*@
+            <div class="col-2">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" href="/Admin/AdminIndex">個人資訊</a>
+                    <a class="list-group-item list-group-item-action" href="#">管理員資訊</a>
+                    <a class="list-group-item list-group-item-action" href="#">會員管理</a>
+                    <a class="list-group-item list-group-item-action" href="#">企業管理</a>
+                    <a class="list-group-item list-group-item-action" href="#">廣告審核</a>
+                    <a class="list-group-item list-group-item-action" href="#">訂單管理</a>
+                    <a class="list-group-item list-group-item-action" href="#">主題管理</a>
+                    <a class="list-group-item list-group-item-action" href="#">活動管理</a>
+                    <a class="list-group-item list-group-item-action" href="#">論壇管理</a>
+                    <a class="list-group-item list-group-item-action" href="#">統計資料</a>
+                </div>
+            </div>
+            @*左側可切換選單*@
+                
+            @*右側顯示內容部分*@
+            <div class="col-lg-10">
+                <div class="tab-content" id="nav-tabContent">
+                    @*畫面放在這*@
+
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-memberindex-tab" data-toggle="tab" href="#nav-memberindex" aria-selected="true">個人資訊</a>
+                            <a class="nav-item nav-link" id="nav-memberedit-tab" data-toggle="tab" href="#nav-memberedit" aria-selected="false">編輯資料</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-memberindex" role="tabpanel" aria-labelledby="nav-home-tab">
+                            @*個人資訊*@
+                            @Html.Action("_AdminIndexPartial", "Admin")
+                            @*個人資訊*@
+
+                        </div>
+                        <div class="tab-pane fade" id="nav-memberedit" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            @*資料修改*@
+                            @Html.Action("_AdminEditPartial", "Admin")
+                            @*資料修改*@
+                        </div>
+                    </div>
+
+                    @*畫面放在這*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

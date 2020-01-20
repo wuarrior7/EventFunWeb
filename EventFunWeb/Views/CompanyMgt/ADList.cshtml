@@ -1,0 +1,132 @@
+﻿@model IEnumerable<EventFunWeb.t廣告>
+@{
+    ViewBag.Title = "ADList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style{}
+<div class="site-blocks-cover inner-page-cover overlay " style="background-image: url(../images/hero_1.jpg);"
+     data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
+
+                <div class="row justify-content-center">
+                    <div class="col-md-8 text-center">
+                        <h1 style="margin-top:150px">企業會員首頁</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*畫面*@
+
+<div class="site-section bg-light">
+    <div class="container bg-white">
+
+        <div class="row">
+            @*左側可切換選單*@
+            @*class設定active*@
+            <div class="col-2">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action" href="~/CompanyMgt/CompanyIndex">企業資訊</a>
+                    <a class="list-group-item list-group-item-action active" href="#">廣告管理</a>
+                    <a class="list-group-item list-group-item-action" href="放連結">活動管理</a>
+                    <a class="list-group-item list-group-item-action" href="放連結">訂單管理</a>
+                    <a class="list-group-item list-group-item-action" href="放連結">統計資料</a>
+                    
+                </div>
+            </div>
+            @*左側可切換選單*@
+
+            @*右側顯示內容部分*@
+            <div class="col-lg-8">
+                <div class="tab-content" id="nav-tabContent">
+                    @*畫面放在這*@
+                    <h2>您的廣告清單</h2>
+
+                    <p>
+                        @Html.ActionLink("刊登廣告", "ADNew")
+                    </p>
+
+                    <table class="table">
+                        <tr>
+
+                            <th>
+                                廣告名稱
+                            </th>
+
+                            <th>
+                                起始日期
+                            </th>
+                            <th>
+                                結束日期
+                            </th>
+
+                            <th>
+                                廣告圖片
+                            </th>
+
+                            <th>
+                                瀏覽次數
+                            </th>
+                            <th>
+                                廣告狀態
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.f廣告名稱)
+                                </td>
+
+                                <td>
+                                    @item.f起始日期.Value.ToString("yyyy-MM-dd")
+                                </td>
+                                <td>
+                                    @item.f結束日期.Value.ToString("yyyy-MM-dd")
+                                </td>
+
+                                <td>
+                                    <img src="/Content/images/AD/@item.f廣告圖片" style="height:200px;width:auto" />
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.f瀏覽次數)
+                                </td>
+                                <td>
+                                    @if (item.f廣告上下架 == true)
+                                    {<p>已上架</p> }
+                                    else
+                                    { <p>未上架</p>}
+                                </td>
+                                <td>
+                                    @Html.ActionLink("修改", "ADEdit", new { fId = item.f廣告編號 }) |
+                                    @*@Html.ActionLink("Details", "Details", new { id=item.f廣告編號 }) |*@
+                                    @Html.ActionLink("刪除", "ADDelete", new { fId = item.f廣告編號 })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+
+                    <dl class="dl-horizontal"></dl>
+
+
+
+
+                    @*畫面放在這*@
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

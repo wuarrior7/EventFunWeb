@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="51974feacd884e3591dc8500c8089203" Name="Diagram1">
+        <EntityTypeShape EntityType="dbEventFunModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t一般會員" Width="1.5" PointX="5.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t主題聊天室" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t主題類型" Width="1.5" PointX="11" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t企業會員" Width="1.5" PointX="8.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t地區" Width="1.5" PointX="3" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t次主題類型" Width="1.5" PointX="13.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t行事曆" Width="1.5" PointX="7.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t行事曆明細" Width="1.5" PointX="9.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t城市" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t活動" Width="1.5" PointX="15.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t活動日期" Width="1.5" PointX="17.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t活動票券" Width="1.5" PointX="22.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t活動場次" Width="1.5" PointX="20" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t活動圖片" Width="1.5" PointX="17.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t商品" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t商品訂單" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t商品訂單明細" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t商品訂單狀態" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t商品圖片" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t票券訂單" Width="1.5" PointX="7.5" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t票券訂單明細" Width="1.5" PointX="10.75" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t票券購物車" Width="1.5" PointX="10.5" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t聊天室" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t評鑑" Width="1.5" PointX="12.5" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t會員喜愛次主題" Width="1.5" PointX="13.5" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t會員喜愛活動" Width="1.5" PointX="13.5" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t會員最愛行事曆" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t管理者資料表" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t廣告" Width="1.5" PointX="10.5" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t論壇文章留言" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbEventFunModel.t論壇文章資料表" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="dbEventFunModel.FK_t一般會員_t地區" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t一般會員_t城市" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t行事曆_t一般會員" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t票券訂單_t一般會員" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t票券購物車_t一般會員" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t評鑑_t一般會員" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t會員喜愛次主題_t一般會員" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t會員喜愛活動_t一般會員" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t次主題類型_t主題類型" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t企業會員_t地區" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t企業會員_t城市" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t活動_t企業會員" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t廣告_t企業會員" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t地區_t城市" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t活動_t次主題類型" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t會員喜愛次主題_t次主題類型" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t行事曆明細_t行事曆" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t活動日期_t活動" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t活動圖片_t活動" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t評鑑_t活動" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t會員喜愛活動_t活動" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t活動場次_t活動日期" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t活動票券_t活動場次" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t票券訂單明細_t活動票券" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t票券購物車_t活動票券" ManuallyRouted="false" />
+        <AssociationConnector Association="dbEventFunModel.FK_t票券訂單明細_t票券訂單" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,141 @@
+﻿@model EventFunWeb.t一般會員
+@{
+    ViewBag.Title = "gMemberIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style{}
+<div class="site-blocks-cover inner-page-cover overlay " style="background-image: url(../images/hero_1.jpg); margin-top: 20px;"
+     data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
+
+                <div class="row justify-content-center">
+                    <div class="col-md-8 text-center">
+                        <h1 style="margin-top:150px">一般會員首頁</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*畫面*@
+
+<div class="site-section bg-light">
+    <div class="container">
+        <form action="#" class="p-5 bg-white" style="margin-top: 20px;">
+            <div class="row">
+                <div class="col-2">
+                    <div class="list-group" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">個人資訊</a>
+                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">資料修改</a>
+                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">喜愛活動</a>
+                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">購物車</a>
+                        <a class="list-group-item list-group-item-action" id="list-order-list" data-toggle="list" href="#list-order" role="tab" aria-controls="order">訂單管理</a>
+                        <a class="list-group-item list-group-item-action" id="list-order-list" data-toggle="list" href="#list-order" role="tab" aria-controls="order">文章管理</a>
+                    </div>
+                </div>
+                @*左側可切換選單*@
+
+                @*右側顯示內容部分*@
+                <div class="col-lg-8">
+                    <div class="tab-content" id="nav-tabContent">
+                        @*會員顯示資料tab*@
+                        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                            @*資訊*@
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-memberindex-tab" data-toggle="tab" href="#nav-memberindex" role="tab" aria-controls="nav-memberindex" aria-selected="true">個人資訊</a>
+                                    <a class="nav-item nav-link" id="nav-memberedit-tab" data-toggle="tab" href="#nav-memberedit" role="tab" aria-controls="nav-memberedit" aria-selected="false">資料修改</a>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-memberindex" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    @*個人資訊*@
+                                    @Html.Action("_gMemberIndex", "gMemberData")
+                                    @*個人資訊*@
+
+                                </div>
+                                <div class="tab-pane fade" id="nav-memberedit" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                    @*資料修改*@
+                                    @Html.Action("_gMemberEdit", "gMemberData")
+                                    @*資料修改*@
+                                </div>
+                            </div>
+
+
+                            @*資訊*@
+                        </div>
+                        @*會員顯示資料tab*@
+                        @*會員資料頁tab*@
+                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                            @*這行不要刪掉才有tab*@
+                            12121
+                        </div>
+                        @*會員資料tab*@
+                        @*我的活動tab*@
+                        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                            1234
+                        </div>
+                        @*我的活動tab*@
+                        @*我的文章tab*@
+                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                            444
+                        </div>
+                        @*我的文章tab*@
+                        <div class="tab-pane fade" id="list-order" role="tabpanel" aria-labelledby="list-order-list">
+                            5555
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="site-section bg-light">
+        <div class="container">
+            <form action="#" class="p-5 bg-white" style="margin-top: 20px;">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-memberindex-tab" data-toggle="tab" href="#nav-memberindex" role="tab" aria-controls="nav-memberindex" aria-selected="true">個人資訊</a>
+                        <a class="nav-item nav-link" id="nav-memberedit-tab" data-toggle="tab" href="#nav-memberedit" role="tab" aria-controls="nav-memberedit" aria-selected="false">資料修改</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">喜愛活動</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">購物車</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">訂單管理</a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-memberindex" role="tabpanel" aria-labelledby="nav-home-tab">
+                        @*個人資訊*@
+                        @Html.Action("_gMemberIndex", "gMemberData")
+                        @*個人資訊*@
+
+                    </div>
+                    <div class="tab-pane fade" id="nav-memberedit" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        @*資料修改*@
+                        @Html.Action("_gMemberEdit", "gMemberData")
+                        @*資料修改*@
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">43243243...</div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">43243243...</div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">43243243...</div>
+                </div>
+            </form>
+        </div>
+    </div>
+

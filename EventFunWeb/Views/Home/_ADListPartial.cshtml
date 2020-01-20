@@ -1,0 +1,37 @@
+﻿@model IEnumerable<EventFunWeb.t廣告>
+
+
+
+<div id="hotad" class="site-section bg-light">
+    <div class="container ">
+        <div class="row justify-content-center mb-5">
+        </div>
+        <div class="slide-one-item home-slider owl-carousel">
+            @foreach (var item in Model)
+            {
+                <div>
+                    <div>
+                        <figure class="mb-4">
+                            
+                            <a href="@item.f廣告網址">
+                                <p style="text-align:center">
+
+                                    <img src="~/Content/images/AD/@item.f廣告圖片" alt="Free Website Template by Free-Template.co"
+                                         class="img-fluid mb-3" style="width:1110px ;height:555px">
+                                </p>
+                                <div style="background:rgba(0,0,0,0.7); color:white; width:100%; height:10%; position: absolute; bottom: 20px;"><h2 style="text-align:center">@item.f廣告名稱</h2></div>
+
+                            </a>
+                        <!--<p>Willie Smith</p>-->
+                    </figure>
+                    <blockquote>
+                        <!-- <p>&ldquo;啤酒頭跨年派對，2020讓【啤酒頭】與你一同直擊101跨年派對，一起high翻天!&rdquo;</p>-->
+                    </blockquote>
+                </div>
+            </div>
+        }
+
+        </div>
+    </div>
+</div>
+

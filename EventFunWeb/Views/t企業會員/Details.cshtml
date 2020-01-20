@@ -1,0 +1,139 @@
+﻿@model EventFunWeb.t企業會員
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutCompany.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>t企業會員</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.f統一編號)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f統一編號)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f企業帳號)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f企業帳號)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f企業密碼)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f企業密碼)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f企業名稱)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f企業名稱)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f企業簡介)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f企業簡介)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f企業電話)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f企業電話)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f企業地址)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f企業地址)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f聯絡人)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f聯絡人)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f聯絡人行動電話)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f聯絡人行動電話)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f企業照片)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f企業照片)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f企業信箱)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f企業信箱)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f企業創建日期)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f企業創建日期)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f企業帳號狀態)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f企業帳號狀態)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.t地區.f城市編號)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.t地區.f城市編號)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.t城市.f城市名稱)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.t城市.f城市名稱)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.f企業編號 }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

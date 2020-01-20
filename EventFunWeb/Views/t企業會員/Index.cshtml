@@ -1,0 +1,118 @@
+﻿@model IEnumerable<EventFunWeb.t企業會員>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCompany.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.f統一編號)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f企業帳號)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f企業密碼)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f企業名稱)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f企業簡介)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f企業電話)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f企業地址)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f聯絡人)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f聯絡人行動電話)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f企業照片)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f企業信箱)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f企業創建日期)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f企業帳號狀態)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.t地區.f城市編號)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.t城市.f城市名稱)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.f統一編號)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f企業帳號)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f企業密碼)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f企業名稱)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f企業簡介)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f企業電話)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f企業地址)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f聯絡人)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f聯絡人行動電話)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f企業照片)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f企業信箱)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f企業創建日期)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f企業帳號狀態)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.t地區.f城市編號)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.t城市.f城市名稱)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.f企業編號 }) |
+            @Html.ActionLink("Details", "Details", new { id=item.f企業編號 }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.f企業編號 })
+        </td>
+    </tr>
+}
+
+</table>

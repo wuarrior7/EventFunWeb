@@ -1,0 +1,71 @@
+﻿@model EventFunWeb.t活動
+@{
+    ViewBag.img = "../../Content/images/activity/" + Model.f活動編號 + ".jpg";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(../../images/hero_1.jpg);"
+         data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
+
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 text-center">
+                            <h2 style="margin-top:150px">探索活動</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section bg-light">
+        <div class="container">
+            <form action="#" class="p-5 bg-white" style="margin-top: 20px; background-color:antiquewhite">
+                <div class="card mb-3">
+                    <img src="@ViewBag.img" alt="Free Website " class="img-fluid" style="width:1020px;height:400px;">
+
+                    <div class="card-body" style="float:left;">
+                        <h3 class="card-title">@Model.f活動名稱</h3>
+                        <dl style="float:left">
+                            <dt> 📢舉辦單位:</dt>
+                            <dd> @Model.t企業會員.f企業名稱</dd>
+                            <dt> ⚭外部網址:</dt>
+                            <dd>
+                                <a href="@Model.f活動網址">點我連結</a>
+                            </dd>
+
+                            <dt> ☎連絡電話:</dt>
+                            <dd>@Model.f聯絡人電話</dd>
+                            <dt>✉連絡信箱:</dt>
+                            <dd>@Model.f聯絡人信箱</dd>
+                        </dl>
+                        <div class="card" style="width: 40em;height:250PX; float:right"><div class="card-body"> @Model.f活動簡介
+                         <footer class="blockquote-footer">活動種類:<cite title="Source Title"> @Html.DisplayFor(model => model.t次主題類型.f次主題名稱)</cite></footer>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+              
+            </form>
+        </div>
+
+    </div>
+  
+
+
+
+    <div class="site-section bg-light">
+        <div class="container">
+            <form action="#" class="p-5 bg-white" style="margin-top: 20px; background-color:antiquewhite">
+
+                <div id="activity">
+                    @(new HtmlString(@Model.f活動內容)))
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

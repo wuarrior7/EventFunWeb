@@ -1,0 +1,166 @@
+﻿
+@model EventFunWeb.t管理者資料表
+
+
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="row mt">
+            <div class="col-lg-12">
+                <div class="row content-panel">
+                    <div class="col-md-3 profile-text mt mb centered">
+                        <div class="right-divider hidden-sm hidden-xs">
+                            <div class="profile-pic">
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.f管理者編號)
+
+                                <div class="form-group">
+                                    <img style="height:150px; width:150px;" id="img" src="~/Content/images/adminimg/@Model.f個人照片" class="img-circle">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /col-md-4 -->
+                    <div class="col-md-9 profile-text">
+                        <form action="_AdminSavePartial" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.f管理者編號)
+
+                                    <div class="form-group">
+                                        @Html.Label("帳號", htmlAttributes: new { @class = "control-label" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.f管理者帳號, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.f管理者帳號, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.Label("密碼", htmlAttributes: new { @class = "control-label" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.f管理者密碼, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.f管理者密碼, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.Label("名稱", htmlAttributes: new { @class = "control-label" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.f管理者名稱, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.f管理者名稱, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.Label("電話", htmlAttributes: new { @class = "control-label " })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.f管理者電話, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.f管理者電話, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("狀態", htmlAttributes: new { @class = "control-label" })
+                                        <div class="col-md-10">
+                                            <div class="checkbox ">
+                                                <select name="f帳號狀態" class="form-control">
+                                                    @if (Model.f帳號狀態 == true)
+                                                    {
+                                                        <option value="true">啟用</option>
+                                                        <option value="false">停用</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="false">停用</option>
+                                                        <option value="true">啟用</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("信箱", htmlAttributes: new { @class = "control-label" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.f管理者信箱, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.f管理者信箱, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="col-md-6">
+                                    
+
+                                    
+                                    <div class="form-group">
+                                        @Html.Label("地址", htmlAttributes: new { @class = "control-label" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.f地址, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.f簡介, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("簡介", htmlAttributes: new { @class = "control-label" })
+                                        <div class="col-md-10">
+                                            <textarea name="f簡介" style="height:300px;" class="form-control" id="簡介">@Html.DisplayFor(model =>model.f簡介)</textarea>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-10" style="align-content:center;">
+                                            <input type="file" name="photo" id="imgIpt" /><br />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="存檔" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+
+                        </form>
+
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+@section scripts{
+    <script>
+        //圖片
+        $("#imgIpt").change(function () {
+            // 上傳檔案的按鈕ID
+            readURL(this);   //
+        });
+        function readURL(input) {//這邊就做預覽圖片
+
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+
+                    $("#img").attr('src', e.target.result);
+                    //需要一個img來放圖片
+                }
+
+                reader.readAsDataURL(input.files[0]);
+
+            }
+
+        }
+    </script>
+}
+
+
+

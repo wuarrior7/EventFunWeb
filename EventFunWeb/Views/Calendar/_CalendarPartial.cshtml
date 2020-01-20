@@ -1,0 +1,124 @@
+﻿
+<div id="calendar" class="fc fc-bootstrap4 fc-ltr"></div>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        plugins: ['dayGrid', 'timeGrid', 'list', 'interaction'],
+        locale: 'zh-tw',
+        
+        fixedWeekCount:false, 
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      },
+      //defaultDate:'defaultDate',
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+        eventLimit: true, // allow "more" link when too many events
+        eventClick: function (data) {
+            alert('Event: ' + data.event.title);
+            alert(data.event.start);
+        },//事件可以按，顯示事件title
+        eventMouseEnter:function (data) {
+            
+            $('#datetip').text(data.event.title);
+            //alert(""+data.color)
+            //$('#datetip').attr('background-color', data.event.color);
+        },
+        eventMouseLeave:function (data) {      
+            $('#datetip').text('行事曆');
+        },
+      events: [
+        
+         @Html.Action("_CalendarFavoriteEvent","Calendar")
+         @Html.Action("_CalendarShoppingCartEventPartial","Calendar")
+         @Html.Action("_CalendarOrderEventPartial","Calendar")
+      ]
+    });
+
+        calendar.render();
+
+        $('.datetest').click(function () {
+            calendar.gotoDate(this.value);
+        })
+        //document.getElementsByClassName('datetest').addEventListener('click', function () {
+        //   calendar.prev(); // call method
+        // });
+
+    //document.getElementById('next').addEventListener('click', function() {
+    //  calendar.next(); // call method
+    //});
+  });
+
+</script>
+
+    @*document.addEventListener('DOMContentLoaded', function () {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      header: { // 頂部排版
+                    left: "prev,next today", // 左邊放置上一頁、下一頁和今天
+                    center: "title", // 中間放置標題
+                    right: "month,agendaWeek,agendaDay", // 右邊放置月、周、天
+                  },
+                
+                  //eventMouseover: function ee(event) {
+                  //    alert(event.title+"<br>"+"aa");
+                  //},
+                theme: false, //是否使用主題
+                weekends: true, // 顯示星期六跟星期日
+                editable: false,  // 啟動拖曳調整日期
+
+                events: [ // 事件
+                    { // 事件
+                        title: "約會",
+                        start: "@DateTime.Now.ToString("yyyy-MM-dd")",
+                        color: "black",  //背景顏色
+                        textColor: "yellow"  //文字顏色
+                    },
+                    { // 事件(包含開始時間)  場次
+                        title: "中餐",
+                        start: "@DateTime.Now.ToString("yyyy-MM-dd"+"T"+"hh:mm:ss")",
+                        id: "Group1"  //名為"Group1"的群組，可一起拖曳
+                    },
+                    { // 事件(包含跨日開始時間、結束時間)
+                        title: "音樂節",
+                        start: "2020-01-07",
+                        end: "2020-01-10"
+                    },
+                    { // 事件(包含開始時間、結束時間)
+                        title: "會議",
+                        start: "2020-01-12T10:30:00",
+                        end: "2020-01-12T12:30:00",
+                        id: "Group1"  //名為"Group1"的群組，可一起拖曳
+                    },
+                    { // 事件(設定連結)
+                        title: "前往Login",
+                        url: "../Login/Login", //必須使用.. 不可使用~
+                        start: "2020-01-28"
+                    },
+                @Html.Action("_CalendarFavoriteEvent","Calendar")
+                @Html.Action("_CalendarShoppingCartEventPartial","Calendar")
+                @Html.Action("_CalendarOrderEventPartial","Calendar")
+                ]
+            }
+    );
+
+    calendar.render();
+
+    document.getElementById('prev').addEventListener('click', function() {
+      calendar.prev(); // call method
+    });
+
+    document.getElementById('next').addEventListener('click', function() {
+      calendar.next(); // call method
+    });
+
+  });*@
+
+              
+

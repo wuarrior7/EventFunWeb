@@ -1,0 +1,138 @@
+﻿@model EventFunWeb.t一般會員
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>t一般會員</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.f會員帳號)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f會員帳號)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f會員密碼)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f會員密碼)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f會員信箱)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f會員信箱)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f會員名稱)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f會員名稱)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f會員性別)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f會員性別)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f出生年月日)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f出生年月日)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f會員簡介)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f會員簡介)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f會員行動電話)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f會員行動電話)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f地址)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f地址)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f會員照片)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f會員照片)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f帳號狀態)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f帳號狀態)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f上次登入時間)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f上次登入時間)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f創建時間)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f創建時間)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.t地區.f城市編號)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.t地區.f城市編號)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.t城市.f城市名稱)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.t城市.f城市名稱)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.f會員編號 }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EventFunWeb.t活動>
+@{
+    ViewBag.Title = "EventList";
+
+}
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center " style="font-size:20px">
+        <div class="form-inline">
+            <h2 class="font-weight-light text-primary">最新活動</h2>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row justify-content-center mb-5" style="float:left;">
+
+        </div>
+        <div class="site-section" data-aos="fade">
+
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+                    string imag = "/Content/images/activity/" + @Html.DisplayFor(modelItem => item.f活動編號) + ".jpg";
+                    <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                        <div class="listing-item">
+                            <div class="listing-image">
+                                <img src="@imag" alt="Free Website " class="img-fluid" style="width:350px;height:300px;">
+                            </div>
+                            <div class="listing-item-content">
+
+                                <a class="px-3 mb-3 category" href="#"> @Html.DisplayFor(modelItem => item.t次主題類型.f次主題名稱)</a>
+                                @Html.ActionLink("名稱:", "EventDetails", new { id = item.f活動編號 })
+                                <h2 class="mb-1"> <a href="~/Event/EventList"> @Html.DisplayFor(modelItem => item.f活動名稱)</a></h2>
+
+
+                            </div>
+                            <div class="listing-item-content">
+                                <a href="listings-single.html" class="bookmark" data-toggle="tooltip"
+                                   data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

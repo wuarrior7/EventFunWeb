@@ -1,0 +1,133 @@
+﻿@model IEnumerable<EventFunWeb.t活動>
+
+@{
+    ViewBag.Title = "CompanyEventList";
+}
+@section Style{
+    <style>
+        .newbtn {
+            color: aliceblue;
+            border-radius: 15px;
+        }
+
+        .center {
+            text-align: center;
+            color: #757575;
+        }
+
+        .f {
+            color: #2f5597;
+        }
+    </style>
+    }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CompanyEventList</title>
+</head>
+<body>
+    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(../images/hero_1.jpg);"
+         data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
+
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 text-center">
+                            <h2 style="margin-top:150px">我的活動</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+       
+   
+    <div class="site-section bg-light">
+        <div class="container ">
+            <p>
+                @Html.ActionLink("舉辦新活動", "CreateEvent", new { id = "" }, new { @class = "btn btn-primary newbtn" })
+            </p>
+
+            @* <form action="#" class="row contact_form" style="margin-top: 20px;">*@
+
+            <ul class="nav nav-tabs " role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#done" role="tab">已上架</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#pending" role="tab">待審核</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#draft" role="tab">草稿</a>
+                </li>
+            </ul>
+
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active show" id="done">
+                    <table class="table table-bordered" >
+                        <tr>
+                            <th scope="col" class="center">
+                                活動聯絡人
+                            </th>
+                            <th scope="col" class="center">
+                                聯絡人電話
+                            </th>
+                            
+                            <th scope="col" class="center">
+                                活動名稱
+                            </th>
+
+                            <th scope="col" class="center">
+                                主題名稱
+                            </th>
+                            <th scope="col" class="center">
+                                功能
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="f">
+                                    @Html.DisplayFor(modelItem => item.f活動聯絡人)
+                                </td>
+                                <td class="f">
+                                    @Html.DisplayFor(modelItem => item.f聯絡人電話)
+                                </td>
+                               
+                                <td class="f">
+                                    @Html.DisplayFor(modelItem => item.f活動名稱)
+                                </td>
+                                <td class="f">
+                                    @Html.DisplayFor(modelItem => item.t次主題類型.f次主題名稱)
+                                </td>
+                                <td>
+                                    <a id="@item.f活動編號" href="~/AddEvent/EditEventHome/@item.f活動編號" title="編輯"><i class="fas fa-pencil-alt"></i></a>
+                                    <a id="@item.f活動編號" href="~/Event/EventDetails/@item.f活動編號" title="查看"><i class="fas fa-book-reader"></i></a>
+                                    <a id="@item.f活動編號" href="~/Event/EventDetails/@item.f活動編號" title="刪除"><i class="fas fa-trash-alt"></i></a>
+                                        @*@Html.ActionLink("Edit", "Edit", new { id = item.f活動編號 }) |
+            @Html.ActionLink("Details", "Details", new { id = item.f活動編號 }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.f活動編號 })*@
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="pending">
+                    <p>
+                       123
+                    </p>
+                </div>
+            </div>
+            @*</form>*@
+        </div>
+    </div>
+
+</body>
+</html>

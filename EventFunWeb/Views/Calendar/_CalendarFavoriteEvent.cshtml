@@ -1,0 +1,17 @@
+﻿@model IEnumerable<EventFunWeb.t活動場次>
+
+@foreach (var item in Model)
+{
+    string start = item.t活動日期.f日期.Value.ToString("yyyy-MM-dd") + "T" + item.f開始時間.Value;
+    string end = item.t活動日期.f日期.Value.ToString("yyyy-MM-dd")+ "T" + item.f結束時間.Value;
+    string title = item.t活動日期.t活動.f活動名稱 + item.f場次名稱;
+    @:{ 
+    @:title: "@title",
+    @:allDay: false,
+    @:start: "@start",
+    @:end:"@end",
+    @:url:"@item.t活動日期.t活動.f活動網址",
+    @:color: "red",
+    @:textColor: "white"
+    @:},
+}

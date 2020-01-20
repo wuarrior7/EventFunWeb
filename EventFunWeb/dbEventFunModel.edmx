@@ -1,0 +1,2064 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbEventFunModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="t一般會員">
+          <Key>
+            <PropertyRef Name="f會員編號" />
+          </Key>
+          <Property Name="f會員編號" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="f會員帳號" Type="varchar" MaxLength="20" />
+          <Property Name="f會員密碼" Type="varchar(max)" />
+          <Property Name="f會員信箱" Type="varchar(max)" />
+          <Property Name="f會員名稱" Type="nvarchar" MaxLength="10" />
+          <Property Name="f會員性別" Type="bit" />
+          <Property Name="f出生年月日" Type="date" />
+          <Property Name="f會員簡介" Type="nvarchar" MaxLength="50" />
+          <Property Name="f會員行動電話" Type="varchar" MaxLength="10" />
+          <Property Name="f城市編號" Type="char" MaxLength="2" />
+          <Property Name="f郵遞區號" Type="char" MaxLength="3" />
+          <Property Name="f地址" Type="nvarchar" MaxLength="50" />
+          <Property Name="f會員照片" Type="nvarchar(max)" />
+          <Property Name="f帳號狀態" Type="bit" />
+          <Property Name="f上次登入時間" Type="datetime" />
+          <Property Name="f創建時間" Type="datetime" />
+        </EntityType>
+        <EntityType Name="t主題聊天室">
+          <Key>
+            <PropertyRef Name="f聊天訊息編號" />
+          </Key>
+          <Property Name="f聊天訊息編號" Type="int" Nullable="false" />
+          <Property Name="f主題類型編號" Type="char" MaxLength="4" />
+          <Property Name="f會員編號" Type="char" MaxLength="12" />
+          <Property Name="f內容" Type="nvarchar" MaxLength="30" />
+          <Property Name="f時間" Type="datetime" />
+        </EntityType>
+        <EntityType Name="t主題類型">
+          <Key>
+            <PropertyRef Name="f主題編號" />
+          </Key>
+          <Property Name="f主題編號" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="f主題名稱" Type="nvarchar" MaxLength="5" />
+          <Property Name="f主題狀態" Type="bit" />
+          <Property Name="f主題優先度" Type="int" />
+          <Property Name="f在線人數" Type="int" />
+        </EntityType>
+        <EntityType Name="t企業會員">
+          <Key>
+            <PropertyRef Name="f企業編號" />
+          </Key>
+          <Property Name="f企業編號" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="f統一編號" Type="char" MaxLength="8" />
+          <Property Name="f企業帳號" Type="varchar" MaxLength="20" />
+          <Property Name="f企業密碼" Type="varchar(max)" />
+          <Property Name="f企業名稱" Type="nvarchar" MaxLength="30" />
+          <Property Name="f企業簡介" Type="nvarchar" MaxLength="100" />
+          <Property Name="f企業電話" Type="varchar" MaxLength="10" />
+          <Property Name="f城市編號" Type="char" MaxLength="2" />
+          <Property Name="f郵遞區號" Type="char" MaxLength="3" />
+          <Property Name="f企業地址" Type="nvarchar" MaxLength="50" />
+          <Property Name="f聯絡人" Type="varchar" MaxLength="50" />
+          <Property Name="f聯絡人行動電話" Type="varchar" MaxLength="50" />
+          <Property Name="f企業照片" Type="nvarchar(max)" />
+          <Property Name="f企業信箱" Type="varchar(max)" />
+          <Property Name="f企業創建日期" Type="datetime" />
+          <Property Name="f企業帳號狀態" Type="bit" />
+        </EntityType>
+        <EntityType Name="t地區">
+          <Key>
+            <PropertyRef Name="f地區郵遞區號" />
+          </Key>
+          <Property Name="f城市編號" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="f地區郵遞區號" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="f地區名稱" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="t次主題類型">
+          <Key>
+            <PropertyRef Name="f次主題編號" />
+          </Key>
+          <Property Name="f次主題編號" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="f主題編號" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="f次主題名稱" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="t行事曆">
+          <Key>
+            <PropertyRef Name="f行事曆編號" />
+          </Key>
+          <Property Name="f行事曆編號" Type="char" MaxLength="14" Nullable="false" />
+          <Property Name="f會員編號" Type="char" MaxLength="12" />
+          <Property Name="f行事曆名稱" Type="nvarchar" MaxLength="30" />
+          <Property Name="f行事曆建立時間" Type="datetime" />
+        </EntityType>
+        <EntityType Name="t行事曆明細">
+          <Key>
+            <PropertyRef Name="f行事曆明細編號" />
+            <PropertyRef Name="f行事曆編號" />
+          </Key>
+          <Property Name="f行事曆明細編號" Type="int" Nullable="false" />
+          <Property Name="f行事曆編號" Type="char" MaxLength="14" Nullable="false" />
+          <Property Name="f場次編號" Type="char" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="t城市">
+          <Key>
+            <PropertyRef Name="f城市編號" />
+          </Key>
+          <Property Name="f城市編號" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="f城市名稱" Type="nvarchar" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="t活動">
+          <Key>
+            <PropertyRef Name="f活動編號" />
+          </Key>
+          <Property Name="f活動編號" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="f次主題編號" Type="char" MaxLength="8" />
+          <Property Name="f企業編號" Type="char" MaxLength="12" />
+          <Property Name="f活動聯絡人" Type="nvarchar(max)" />
+          <Property Name="f聯絡人電話" Type="varchar(max)" />
+          <Property Name="f聯絡人信箱" Type="varchar(max)" />
+          <Property Name="f活動名稱" Type="nvarchar(max)" />
+          <Property Name="f活動網址" Type="varchar(max)" />
+          <Property Name="f活動簡介" Type="nvarchar(max)" />
+          <Property Name="f活動內容" Type="nvarchar(max)" />
+          <Property Name="f人氣" Type="int" />
+        </EntityType>
+        <EntityType Name="t活動日期">
+          <Key>
+            <PropertyRef Name="f活動日期編號" />
+          </Key>
+          <Property Name="f活動日期編號" Type="char" MaxLength="16" Nullable="false" />
+          <Property Name="f活動編號" Type="char" MaxLength="12" />
+          <Property Name="f日期" Type="date" />
+        </EntityType>
+        <EntityType Name="t活動票券">
+          <Key>
+            <PropertyRef Name="f票券編號" />
+          </Key>
+          <Property Name="f票券編號" Type="char" MaxLength="24" Nullable="false" />
+          <Property Name="f場次編號" Type="char" MaxLength="20" />
+          <Property Name="f票券名稱" Type="nvarchar" MaxLength="50" />
+          <Property Name="f票券金額" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="f票券庫存" Type="int" />
+          <Property Name="f票券已售數量" Type="int" />
+        </EntityType>
+        <EntityType Name="t活動場次">
+          <Key>
+            <PropertyRef Name="f場次編號" />
+          </Key>
+          <Property Name="f場次編號" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="f活動日期編號" Type="char" MaxLength="16" />
+          <Property Name="f場次名稱" Type="nvarchar" MaxLength="50" />
+          <Property Name="f場次城市編號" Type="char" MaxLength="2" />
+          <Property Name="f場次地區編號" Type="char" MaxLength="3" />
+          <Property Name="f場次地址" Type="nvarchar" MaxLength="50" />
+          <Property Name="f開始時間" Type="time" Precision="7" />
+          <Property Name="f結束時間" Type="time" Precision="7" />
+          <Property Name="f場次備註" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="t活動圖片">
+          <Key>
+            <PropertyRef Name="f圖片編號" />
+          </Key>
+          <Property Name="f圖片編號" Type="int" Nullable="false" />
+          <Property Name="f活動編號" Type="char" MaxLength="12" />
+          <Property Name="f活動圖片" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="t商品">
+          <Key>
+            <PropertyRef Name="f商品編號" />
+          </Key>
+          <Property Name="f商品編號" Type="char" MaxLength="16" Nullable="false" />
+          <Property Name="f活動編號" Type="char" MaxLength="12" />
+          <Property Name="f商品名稱" Type="nvarchar" MaxLength="20" />
+          <Property Name="f商品描述" Type="nvarchar(max)" />
+          <Property Name="f上架時間" Type="datetime" />
+          <Property Name="f販賣價格" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="f庫存" Type="int" />
+          <Property Name="f已售數量" Type="int" />
+          <Property Name="f上架狀態" Type="bit" />
+        </EntityType>
+        <EntityType Name="t商品訂單">
+          <Key>
+            <PropertyRef Name="f商品訂單編號" />
+          </Key>
+          <Property Name="f商品訂單編號" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="f會員編號" Type="char" MaxLength="12" />
+          <Property Name="f商品訂單日期" Type="date" />
+          <Property Name="f商品到貨日期" Type="date" />
+          <Property Name="f收貨人" Type="nvarchar" MaxLength="10" />
+          <Property Name="f收貨地址" Type="nvarchar(max)" />
+          <Property Name="f商品訂單狀態編號" Type="int" />
+          <Property Name="f完成時間" Type="datetime" />
+        </EntityType>
+        <EntityType Name="t商品訂單明細">
+          <Key>
+            <PropertyRef Name="f商品編號" />
+            <PropertyRef Name="f商品訂單編號" />
+          </Key>
+          <Property Name="f商品編號" Type="char" MaxLength="16" Nullable="false" />
+          <Property Name="f商品訂單編號" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="f商品數量" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="t商品訂單狀態">
+          <Key>
+            <PropertyRef Name="f商品訂單狀態編號" />
+          </Key>
+          <Property Name="f商品訂單狀態編號" Type="int" Nullable="false" />
+          <Property Name="f商品訂單狀態名稱" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="t商品圖片">
+          <Key>
+            <PropertyRef Name="f商品圖片編號" />
+          </Key>
+          <Property Name="f商品圖片編號" Type="int" Nullable="false" />
+          <Property Name="f商品編號" Type="char" MaxLength="16" />
+          <Property Name="f商品圖片" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="t票券訂單">
+          <Key>
+            <PropertyRef Name="f票券訂單編號" />
+          </Key>
+          <Property Name="f票券訂單編號" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="f會員編號" Type="char" MaxLength="12" />
+          <Property Name="f票券訂單日期" Type="date" />
+          <Property Name="fQR圖片" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="t票券訂單明細">
+          <Key>
+            <PropertyRef Name="f票券編號" />
+            <PropertyRef Name="f票券訂單編號" />
+          </Key>
+          <Property Name="f票券編號" Type="char" MaxLength="24" Nullable="false" />
+          <Property Name="f票券訂單編號" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="f票券數量" Type="int" />
+        </EntityType>
+        <EntityType Name="t票券購物車">
+          <Key>
+            <PropertyRef Name="f票券編號" />
+            <PropertyRef Name="f會員編號" />
+          </Key>
+          <Property Name="f票券編號" Type="char" MaxLength="24" Nullable="false" />
+          <Property Name="f會員編號" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="票券數量" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t聊天室">
+          <Key>
+            <PropertyRef Name="f聊天室編號" />
+          </Key>
+          <Property Name="f聊天室編號" Type="int" Nullable="false" />
+          <Property Name="f一般會員編號" Type="char" MaxLength="12" />
+          <Property Name="f企業會員編號" Type="char" MaxLength="12" />
+          <Property Name="f發話方編號" Type="char" MaxLength="12" />
+          <Property Name="f聊天內容" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="t評鑑">
+          <Key>
+            <PropertyRef Name="f評鑑編號" />
+          </Key>
+          <Property Name="f評鑑編號" Type="int" Nullable="false" />
+          <Property Name="f活動編號" Type="char" MaxLength="12" />
+          <Property Name="f評鑑分數" Type="decimal" Precision="2" Scale="1" />
+          <Property Name="f評鑑內容" Type="nvarchar" MaxLength="50" />
+          <Property Name="f會員編號" Type="char" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="t會員喜愛次主題">
+          <Key>
+            <PropertyRef Name="f會員喜愛次主題流水號" />
+          </Key>
+          <Property Name="f會員喜愛次主題流水號" Type="int" Nullable="false" />
+          <Property Name="f會員編號" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="f次主題編號" Type="char" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t會員喜愛活動">
+          <Key>
+            <PropertyRef Name="f喜愛活動流水號" />
+          </Key>
+          <Property Name="f喜愛活動流水號" Type="int" Nullable="false" />
+          <Property Name="f會員編號" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="f活動編號" Type="char" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t會員最愛行事曆">
+          <Key>
+            <PropertyRef Name="f行事曆編號" />
+            <PropertyRef Name="f會員編號" />
+          </Key>
+          <Property Name="f行事曆編號" Type="char" MaxLength="14" Nullable="false" />
+          <Property Name="f會員編號" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="f收藏時間" Type="datetime" />
+        </EntityType>
+        <EntityType Name="t管理者資料表">
+          <Key>
+            <PropertyRef Name="f管理者編號" />
+          </Key>
+          <Property Name="f管理者編號" Type="int" Nullable="false" />
+          <Property Name="f管理者帳號" Type="varchar" MaxLength="20" />
+          <Property Name="f管理者密碼" Type="varchar(max)" />
+          <Property Name="f管理者名稱" Type="nvarchar" MaxLength="50" />
+          <Property Name="f管理者電話" Type="varchar" MaxLength="50" />
+          <Property Name="f個人照片" Type="nvarchar(max)" />
+          <Property Name="f帳號狀態" Type="bit" />
+          <Property Name="f上次登入時間" Type="datetime" />
+          <Property Name="f管理者信箱" Type="varchar(max)" />
+          <Property Name="f簡介" Type="nvarchar(max)" />
+          <Property Name="f地址" Type="nvarchar(max)" />
+          <Property Name="f創建時間" Type="datetime" />
+        </EntityType>
+        <EntityType Name="t廣告">
+          <Key>
+            <PropertyRef Name="f廣告編號" />
+          </Key>
+          <Property Name="f廣告編號" Type="int" Nullable="false" />
+          <Property Name="f企業編號" Type="char" MaxLength="12" />
+          <Property Name="f廣告名稱" Type="varchar" MaxLength="30" />
+          <Property Name="f廣告內容" Type="varchar(max)" />
+          <Property Name="f起始日期" Type="date" />
+          <Property Name="f結束日期" Type="date" />
+          <Property Name="f瀏覽次數" Type="int" />
+          <Property Name="f廣告圖片" Type="nvarchar(max)" />
+          <Property Name="f廣告網址" Type="nvarchar(max)" />
+          <Property Name="f廣告上下架" Type="bit" />
+        </EntityType>
+        <EntityType Name="t論壇文章留言">
+          <Key>
+            <PropertyRef Name="f文章編號" />
+            <PropertyRef Name="f留言編號" />
+          </Key>
+          <Property Name="f文章編號" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="f留言編號" Type="int" Nullable="false" />
+          <Property Name="f留言內容" Type="nvarchar" MaxLength="50" />
+          <Property Name="f會員編號" Type="char" MaxLength="12" />
+          <Property Name="f發布時間" Type="datetime" />
+        </EntityType>
+        <EntityType Name="t論壇文章資料表">
+          <Key>
+            <PropertyRef Name="f文章編號" />
+          </Key>
+          <Property Name="f文章編號" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="f主題編號" Type="char" MaxLength="4" />
+          <Property Name="f文章標題" Type="nvarchar" MaxLength="20" />
+          <Property Name="f文章內容" Type="nvarchar(max)" />
+          <Property Name="f發布時間" Type="datetime" />
+          <Property Name="f會員編號" Type="char" MaxLength="12" />
+          <Property Name="f文章瀏覽數" Type="int" />
+        </EntityType>
+        <Association Name="FK_t一般會員_t地區">
+          <End Role="t地區" Type="Self.t地區" Multiplicity="0..1" />
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t地區">
+              <PropertyRef Name="f地區郵遞區號" />
+            </Principal>
+            <Dependent Role="t一般會員">
+              <PropertyRef Name="f郵遞區號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t一般會員_t城市">
+          <End Role="t城市" Type="Self.t城市" Multiplicity="0..1" />
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t城市">
+              <PropertyRef Name="f城市編號" />
+            </Principal>
+            <Dependent Role="t一般會員">
+              <PropertyRef Name="f城市編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t企業會員_t地區">
+          <End Role="t地區" Type="Self.t地區" Multiplicity="0..1" />
+          <End Role="t企業會員" Type="Self.t企業會員" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t地區">
+              <PropertyRef Name="f地區郵遞區號" />
+            </Principal>
+            <Dependent Role="t企業會員">
+              <PropertyRef Name="f郵遞區號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t企業會員_t城市">
+          <End Role="t城市" Type="Self.t城市" Multiplicity="0..1" />
+          <End Role="t企業會員" Type="Self.t企業會員" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t城市">
+              <PropertyRef Name="f城市編號" />
+            </Principal>
+            <Dependent Role="t企業會員">
+              <PropertyRef Name="f城市編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t地區_t城市">
+          <End Role="t城市" Type="Self.t城市" Multiplicity="1" />
+          <End Role="t地區" Type="Self.t地區" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t城市">
+              <PropertyRef Name="f城市編號" />
+            </Principal>
+            <Dependent Role="t地區">
+              <PropertyRef Name="f城市編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t次主題類型_t主題類型">
+          <End Role="t主題類型" Type="Self.t主題類型" Multiplicity="1" />
+          <End Role="t次主題類型" Type="Self.t次主題類型" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t主題類型">
+              <PropertyRef Name="f主題編號" />
+            </Principal>
+            <Dependent Role="t次主題類型">
+              <PropertyRef Name="f主題編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t行事曆_t一般會員">
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="0..1" />
+          <End Role="t行事曆" Type="Self.t行事曆" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t一般會員">
+              <PropertyRef Name="f會員編號" />
+            </Principal>
+            <Dependent Role="t行事曆">
+              <PropertyRef Name="f會員編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t行事曆明細_t行事曆">
+          <End Role="t行事曆" Type="Self.t行事曆" Multiplicity="1" />
+          <End Role="t行事曆明細" Type="Self.t行事曆明細" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t行事曆">
+              <PropertyRef Name="f行事曆編號" />
+            </Principal>
+            <Dependent Role="t行事曆明細">
+              <PropertyRef Name="f行事曆編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t活動_t企業會員">
+          <End Role="t企業會員" Type="Self.t企業會員" Multiplicity="0..1" />
+          <End Role="t活動" Type="Self.t活動" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t企業會員">
+              <PropertyRef Name="f企業編號" />
+            </Principal>
+            <Dependent Role="t活動">
+              <PropertyRef Name="f企業編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t活動_t次主題類型">
+          <End Role="t次主題類型" Type="Self.t次主題類型" Multiplicity="0..1" />
+          <End Role="t活動" Type="Self.t活動" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t次主題類型">
+              <PropertyRef Name="f次主題編號" />
+            </Principal>
+            <Dependent Role="t活動">
+              <PropertyRef Name="f次主題編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t活動日期_t活動">
+          <End Role="t活動" Type="Self.t活動" Multiplicity="0..1" />
+          <End Role="t活動日期" Type="Self.t活動日期" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動">
+              <PropertyRef Name="f活動編號" />
+            </Principal>
+            <Dependent Role="t活動日期">
+              <PropertyRef Name="f活動編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t活動票券_t活動場次">
+          <End Role="t活動場次" Type="Self.t活動場次" Multiplicity="0..1" />
+          <End Role="t活動票券" Type="Self.t活動票券" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動場次">
+              <PropertyRef Name="f場次編號" />
+            </Principal>
+            <Dependent Role="t活動票券">
+              <PropertyRef Name="f場次編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t活動場次_t活動日期">
+          <End Role="t活動日期" Type="Self.t活動日期" Multiplicity="0..1" />
+          <End Role="t活動場次" Type="Self.t活動場次" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動日期">
+              <PropertyRef Name="f活動日期編號" />
+            </Principal>
+            <Dependent Role="t活動場次">
+              <PropertyRef Name="f活動日期編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t活動圖片_t活動">
+          <End Role="t活動" Type="Self.t活動" Multiplicity="0..1" />
+          <End Role="t活動圖片" Type="Self.t活動圖片" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動">
+              <PropertyRef Name="f活動編號" />
+            </Principal>
+            <Dependent Role="t活動圖片">
+              <PropertyRef Name="f活動編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t票券訂單_t一般會員">
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="0..1" />
+          <End Role="t票券訂單" Type="Self.t票券訂單" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t一般會員">
+              <PropertyRef Name="f會員編號" />
+            </Principal>
+            <Dependent Role="t票券訂單">
+              <PropertyRef Name="f會員編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t票券訂單明細_t活動票券">
+          <End Role="t活動票券" Type="Self.t活動票券" Multiplicity="1" />
+          <End Role="t票券訂單明細" Type="Self.t票券訂單明細" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動票券">
+              <PropertyRef Name="f票券編號" />
+            </Principal>
+            <Dependent Role="t票券訂單明細">
+              <PropertyRef Name="f票券編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t票券訂單明細_t票券訂單">
+          <End Role="t票券訂單" Type="Self.t票券訂單" Multiplicity="1" />
+          <End Role="t票券訂單明細" Type="Self.t票券訂單明細" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t票券訂單">
+              <PropertyRef Name="f票券訂單編號" />
+            </Principal>
+            <Dependent Role="t票券訂單明細">
+              <PropertyRef Name="f票券訂單編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t票券購物車_t一般會員">
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="1" />
+          <End Role="t票券購物車" Type="Self.t票券購物車" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t一般會員">
+              <PropertyRef Name="f會員編號" />
+            </Principal>
+            <Dependent Role="t票券購物車">
+              <PropertyRef Name="f會員編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t票券購物車_t活動票券">
+          <End Role="t活動票券" Type="Self.t活動票券" Multiplicity="1" />
+          <End Role="t票券購物車" Type="Self.t票券購物車" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動票券">
+              <PropertyRef Name="f票券編號" />
+            </Principal>
+            <Dependent Role="t票券購物車">
+              <PropertyRef Name="f票券編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t評鑑_t一般會員">
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="0..1" />
+          <End Role="t評鑑" Type="Self.t評鑑" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t一般會員">
+              <PropertyRef Name="f會員編號" />
+            </Principal>
+            <Dependent Role="t評鑑">
+              <PropertyRef Name="f會員編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t評鑑_t活動">
+          <End Role="t活動" Type="Self.t活動" Multiplicity="0..1" />
+          <End Role="t評鑑" Type="Self.t評鑑" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動">
+              <PropertyRef Name="f活動編號" />
+            </Principal>
+            <Dependent Role="t評鑑">
+              <PropertyRef Name="f活動編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t會員喜愛次主題_t一般會員">
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="1" />
+          <End Role="t會員喜愛次主題" Type="Self.t會員喜愛次主題" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t一般會員">
+              <PropertyRef Name="f會員編號" />
+            </Principal>
+            <Dependent Role="t會員喜愛次主題">
+              <PropertyRef Name="f會員編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t會員喜愛次主題_t次主題類型">
+          <End Role="t次主題類型" Type="Self.t次主題類型" Multiplicity="1" />
+          <End Role="t會員喜愛次主題" Type="Self.t會員喜愛次主題" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t次主題類型">
+              <PropertyRef Name="f次主題編號" />
+            </Principal>
+            <Dependent Role="t會員喜愛次主題">
+              <PropertyRef Name="f次主題編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t會員喜愛活動_t一般會員">
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="1" />
+          <End Role="t會員喜愛活動" Type="Self.t會員喜愛活動" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t一般會員">
+              <PropertyRef Name="f會員編號" />
+            </Principal>
+            <Dependent Role="t會員喜愛活動">
+              <PropertyRef Name="f會員編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t會員喜愛活動_t活動">
+          <End Role="t活動" Type="Self.t活動" Multiplicity="1" />
+          <End Role="t會員喜愛活動" Type="Self.t會員喜愛活動" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動">
+              <PropertyRef Name="f活動編號" />
+            </Principal>
+            <Dependent Role="t會員喜愛活動">
+              <PropertyRef Name="f活動編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t廣告_t企業會員">
+          <End Role="t企業會員" Type="Self.t企業會員" Multiplicity="0..1" />
+          <End Role="t廣告" Type="Self.t廣告" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t企業會員">
+              <PropertyRef Name="f企業編號" />
+            </Principal>
+            <Dependent Role="t廣告">
+              <PropertyRef Name="f企業編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbEventFunModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t一般會員" EntityType="Self.t一般會員" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t主題聊天室" EntityType="Self.t主題聊天室" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t主題類型" EntityType="Self.t主題類型" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t企業會員" EntityType="Self.t企業會員" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t地區" EntityType="Self.t地區" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t次主題類型" EntityType="Self.t次主題類型" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t行事曆" EntityType="Self.t行事曆" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t行事曆明細" EntityType="Self.t行事曆明細" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t城市" EntityType="Self.t城市" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t活動" EntityType="Self.t活動" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t活動日期" EntityType="Self.t活動日期" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t活動票券" EntityType="Self.t活動票券" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t活動場次" EntityType="Self.t活動場次" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t活動圖片" EntityType="Self.t活動圖片" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t商品" EntityType="Self.t商品" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t商品訂單" EntityType="Self.t商品訂單" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t商品訂單明細" EntityType="Self.t商品訂單明細" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t商品訂單狀態" EntityType="Self.t商品訂單狀態" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t商品圖片" EntityType="Self.t商品圖片" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t票券訂單" EntityType="Self.t票券訂單" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t票券訂單明細" EntityType="Self.t票券訂單明細" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t票券購物車" EntityType="Self.t票券購物車" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t聊天室" EntityType="Self.t聊天室" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t評鑑" EntityType="Self.t評鑑" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t會員喜愛次主題" EntityType="Self.t會員喜愛次主題" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t會員喜愛活動" EntityType="Self.t會員喜愛活動" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t會員最愛行事曆" EntityType="Self.t會員最愛行事曆" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t管理者資料表" EntityType="Self.t管理者資料表" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t廣告" EntityType="Self.t廣告" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t論壇文章留言" EntityType="Self.t論壇文章留言" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t論壇文章資料表" EntityType="Self.t論壇文章資料表" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_t一般會員_t地區" Association="Self.FK_t一般會員_t地區">
+            <End Role="t地區" EntitySet="t地區" />
+            <End Role="t一般會員" EntitySet="t一般會員" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t一般會員_t城市" Association="Self.FK_t一般會員_t城市">
+            <End Role="t城市" EntitySet="t城市" />
+            <End Role="t一般會員" EntitySet="t一般會員" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t企業會員_t地區" Association="Self.FK_t企業會員_t地區">
+            <End Role="t地區" EntitySet="t地區" />
+            <End Role="t企業會員" EntitySet="t企業會員" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t企業會員_t城市" Association="Self.FK_t企業會員_t城市">
+            <End Role="t城市" EntitySet="t城市" />
+            <End Role="t企業會員" EntitySet="t企業會員" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t地區_t城市" Association="Self.FK_t地區_t城市">
+            <End Role="t城市" EntitySet="t城市" />
+            <End Role="t地區" EntitySet="t地區" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t次主題類型_t主題類型" Association="Self.FK_t次主題類型_t主題類型">
+            <End Role="t主題類型" EntitySet="t主題類型" />
+            <End Role="t次主題類型" EntitySet="t次主題類型" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t行事曆_t一般會員" Association="Self.FK_t行事曆_t一般會員">
+            <End Role="t一般會員" EntitySet="t一般會員" />
+            <End Role="t行事曆" EntitySet="t行事曆" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t行事曆明細_t行事曆" Association="Self.FK_t行事曆明細_t行事曆">
+            <End Role="t行事曆" EntitySet="t行事曆" />
+            <End Role="t行事曆明細" EntitySet="t行事曆明細" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t活動_t企業會員" Association="Self.FK_t活動_t企業會員">
+            <End Role="t企業會員" EntitySet="t企業會員" />
+            <End Role="t活動" EntitySet="t活動" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t活動_t次主題類型" Association="Self.FK_t活動_t次主題類型">
+            <End Role="t次主題類型" EntitySet="t次主題類型" />
+            <End Role="t活動" EntitySet="t活動" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t活動日期_t活動" Association="Self.FK_t活動日期_t活動">
+            <End Role="t活動" EntitySet="t活動" />
+            <End Role="t活動日期" EntitySet="t活動日期" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t活動票券_t活動場次" Association="Self.FK_t活動票券_t活動場次">
+            <End Role="t活動場次" EntitySet="t活動場次" />
+            <End Role="t活動票券" EntitySet="t活動票券" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t活動場次_t活動日期" Association="Self.FK_t活動場次_t活動日期">
+            <End Role="t活動日期" EntitySet="t活動日期" />
+            <End Role="t活動場次" EntitySet="t活動場次" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t活動圖片_t活動" Association="Self.FK_t活動圖片_t活動">
+            <End Role="t活動" EntitySet="t活動" />
+            <End Role="t活動圖片" EntitySet="t活動圖片" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t票券訂單_t一般會員" Association="Self.FK_t票券訂單_t一般會員">
+            <End Role="t一般會員" EntitySet="t一般會員" />
+            <End Role="t票券訂單" EntitySet="t票券訂單" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t票券訂單明細_t活動票券" Association="Self.FK_t票券訂單明細_t活動票券">
+            <End Role="t活動票券" EntitySet="t活動票券" />
+            <End Role="t票券訂單明細" EntitySet="t票券訂單明細" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t票券訂單明細_t票券訂單" Association="Self.FK_t票券訂單明細_t票券訂單">
+            <End Role="t票券訂單" EntitySet="t票券訂單" />
+            <End Role="t票券訂單明細" EntitySet="t票券訂單明細" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t票券購物車_t一般會員" Association="Self.FK_t票券購物車_t一般會員">
+            <End Role="t一般會員" EntitySet="t一般會員" />
+            <End Role="t票券購物車" EntitySet="t票券購物車" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t票券購物車_t活動票券" Association="Self.FK_t票券購物車_t活動票券">
+            <End Role="t活動票券" EntitySet="t活動票券" />
+            <End Role="t票券購物車" EntitySet="t票券購物車" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t評鑑_t一般會員" Association="Self.FK_t評鑑_t一般會員">
+            <End Role="t一般會員" EntitySet="t一般會員" />
+            <End Role="t評鑑" EntitySet="t評鑑" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t評鑑_t活動" Association="Self.FK_t評鑑_t活動">
+            <End Role="t活動" EntitySet="t活動" />
+            <End Role="t評鑑" EntitySet="t評鑑" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t會員喜愛次主題_t一般會員" Association="Self.FK_t會員喜愛次主題_t一般會員">
+            <End Role="t一般會員" EntitySet="t一般會員" />
+            <End Role="t會員喜愛次主題" EntitySet="t會員喜愛次主題" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t會員喜愛次主題_t次主題類型" Association="Self.FK_t會員喜愛次主題_t次主題類型">
+            <End Role="t次主題類型" EntitySet="t次主題類型" />
+            <End Role="t會員喜愛次主題" EntitySet="t會員喜愛次主題" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t會員喜愛活動_t一般會員" Association="Self.FK_t會員喜愛活動_t一般會員">
+            <End Role="t一般會員" EntitySet="t一般會員" />
+            <End Role="t會員喜愛活動" EntitySet="t會員喜愛活動" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t會員喜愛活動_t活動" Association="Self.FK_t會員喜愛活動_t活動">
+            <End Role="t活動" EntitySet="t活動" />
+            <End Role="t會員喜愛活動" EntitySet="t會員喜愛活動" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t廣告_t企業會員" Association="Self.FK_t廣告_t企業會員">
+            <End Role="t企業會員" EntitySet="t企業會員" />
+            <End Role="t廣告" EntitySet="t廣告" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbEventFunModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="t一般會員">
+          <Key>
+            <PropertyRef Name="f會員編號" />
+          </Key>
+          <Property Name="f會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f會員帳號" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="f會員密碼" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="f會員信箱" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="f會員名稱" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="f會員性別" Type="Boolean" />
+          <Property Name="f出生年月日" Type="DateTime" Precision="0" />
+          <Property Name="f會員簡介" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="f會員行動電話" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="f城市編號" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="f郵遞區號" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="f地址" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="f會員照片" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f帳號狀態" Type="Boolean" />
+          <Property Name="f上次登入時間" Type="DateTime" Precision="3" />
+          <Property Name="f創建時間" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="t地區" Relationship="Self.FK_t一般會員_t地區" FromRole="t一般會員" ToRole="t地區" />
+          <NavigationProperty Name="t城市" Relationship="Self.FK_t一般會員_t城市" FromRole="t一般會員" ToRole="t城市" />
+          <NavigationProperty Name="t行事曆" Relationship="Self.FK_t行事曆_t一般會員" FromRole="t一般會員" ToRole="t行事曆" />
+          <NavigationProperty Name="t票券訂單" Relationship="Self.FK_t票券訂單_t一般會員" FromRole="t一般會員" ToRole="t票券訂單" />
+          <NavigationProperty Name="t票券購物車" Relationship="Self.FK_t票券購物車_t一般會員" FromRole="t一般會員" ToRole="t票券購物車" />
+          <NavigationProperty Name="t評鑑" Relationship="Self.FK_t評鑑_t一般會員" FromRole="t一般會員" ToRole="t評鑑" />
+          <NavigationProperty Name="t會員喜愛次主題" Relationship="Self.FK_t會員喜愛次主題_t一般會員" FromRole="t一般會員" ToRole="t會員喜愛次主題" />
+          <NavigationProperty Name="t會員喜愛活動" Relationship="Self.FK_t會員喜愛活動_t一般會員" FromRole="t一般會員" ToRole="t會員喜愛活動" />
+        </EntityType>
+        <EntityType Name="t主題聊天室">
+          <Key>
+            <PropertyRef Name="f聊天訊息編號" />
+          </Key>
+          <Property Name="f聊天訊息編號" Type="Int32" Nullable="false" />
+          <Property Name="f主題類型編號" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="f會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f內容" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="f時間" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="t主題類型">
+          <Key>
+            <PropertyRef Name="f主題編號" />
+          </Key>
+          <Property Name="f主題編號" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f主題名稱" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="f主題狀態" Type="Boolean" />
+          <Property Name="f主題優先度" Type="Int32" />
+          <Property Name="f在線人數" Type="Int32" />
+          <NavigationProperty Name="t次主題類型" Relationship="Self.FK_t次主題類型_t主題類型" FromRole="t主題類型" ToRole="t次主題類型" />
+        </EntityType>
+        <EntityType Name="t企業會員">
+          <Key>
+            <PropertyRef Name="f企業編號" />
+          </Key>
+          <Property Name="f企業編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f統一編號" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="f企業帳號" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="f企業密碼" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="f企業名稱" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="f企業簡介" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="f企業電話" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="f城市編號" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="f郵遞區號" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="f企業地址" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="f聯絡人" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f聯絡人行動電話" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f企業照片" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f企業信箱" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="f企業創建日期" Type="DateTime" Precision="3" />
+          <Property Name="f企業帳號狀態" Type="Boolean" />
+          <NavigationProperty Name="t地區" Relationship="Self.FK_t企業會員_t地區" FromRole="t企業會員" ToRole="t地區" />
+          <NavigationProperty Name="t城市" Relationship="Self.FK_t企業會員_t城市" FromRole="t企業會員" ToRole="t城市" />
+          <NavigationProperty Name="t活動" Relationship="Self.FK_t活動_t企業會員" FromRole="t企業會員" ToRole="t活動" />
+          <NavigationProperty Name="t廣告" Relationship="Self.FK_t廣告_t企業會員" FromRole="t企業會員" ToRole="t廣告" />
+        </EntityType>
+        <EntityType Name="t地區">
+          <Key>
+            <PropertyRef Name="f地區郵遞區號" />
+          </Key>
+          <Property Name="f城市編號" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f地區郵遞區號" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f地區名稱" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="t一般會員" Relationship="Self.FK_t一般會員_t地區" FromRole="t地區" ToRole="t一般會員" />
+          <NavigationProperty Name="t企業會員" Relationship="Self.FK_t企業會員_t地區" FromRole="t地區" ToRole="t企業會員" />
+          <NavigationProperty Name="t城市" Relationship="Self.FK_t地區_t城市" FromRole="t地區" ToRole="t城市" />
+        </EntityType>
+        <EntityType Name="t次主題類型">
+          <Key>
+            <PropertyRef Name="f次主題編號" />
+          </Key>
+          <Property Name="f次主題編號" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f主題編號" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f次主題名稱" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="t主題類型" Relationship="Self.FK_t次主題類型_t主題類型" FromRole="t次主題類型" ToRole="t主題類型" />
+          <NavigationProperty Name="t活動" Relationship="Self.FK_t活動_t次主題類型" FromRole="t次主題類型" ToRole="t活動" />
+          <NavigationProperty Name="t會員喜愛次主題" Relationship="Self.FK_t會員喜愛次主題_t次主題類型" FromRole="t次主題類型" ToRole="t會員喜愛次主題" />
+        </EntityType>
+        <EntityType Name="t行事曆">
+          <Key>
+            <PropertyRef Name="f行事曆編號" />
+          </Key>
+          <Property Name="f行事曆編號" Type="String" MaxLength="14" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f行事曆名稱" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="f行事曆建立時間" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="t一般會員" Relationship="Self.FK_t行事曆_t一般會員" FromRole="t行事曆" ToRole="t一般會員" />
+          <NavigationProperty Name="t行事曆明細" Relationship="Self.FK_t行事曆明細_t行事曆" FromRole="t行事曆" ToRole="t行事曆明細" />
+        </EntityType>
+        <EntityType Name="t行事曆明細">
+          <Key>
+            <PropertyRef Name="f行事曆明細編號" />
+            <PropertyRef Name="f行事曆編號" />
+          </Key>
+          <Property Name="f行事曆明細編號" Type="Int32" Nullable="false" />
+          <Property Name="f行事曆編號" Type="String" MaxLength="14" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f場次編號" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="t行事曆" Relationship="Self.FK_t行事曆明細_t行事曆" FromRole="t行事曆明細" ToRole="t行事曆" />
+        </EntityType>
+        <EntityType Name="t城市">
+          <Key>
+            <PropertyRef Name="f城市編號" />
+          </Key>
+          <Property Name="f城市編號" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f城市名稱" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="t一般會員" Relationship="Self.FK_t一般會員_t城市" FromRole="t城市" ToRole="t一般會員" />
+          <NavigationProperty Name="t企業會員" Relationship="Self.FK_t企業會員_t城市" FromRole="t城市" ToRole="t企業會員" />
+          <NavigationProperty Name="t地區" Relationship="Self.FK_t地區_t城市" FromRole="t城市" ToRole="t地區" />
+        </EntityType>
+        <EntityType Name="t活動">
+          <Key>
+            <PropertyRef Name="f活動編號" />
+          </Key>
+          <Property Name="f活動編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f次主題編號" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="f企業編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f活動聯絡人" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f聯絡人電話" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="f聯絡人信箱" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="f活動名稱" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f活動網址" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="f活動簡介" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f活動內容" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f人氣" Type="Int32" />
+          <NavigationProperty Name="t企業會員" Relationship="Self.FK_t活動_t企業會員" FromRole="t活動" ToRole="t企業會員" />
+          <NavigationProperty Name="t次主題類型" Relationship="Self.FK_t活動_t次主題類型" FromRole="t活動" ToRole="t次主題類型" />
+          <NavigationProperty Name="t活動日期" Relationship="Self.FK_t活動日期_t活動" FromRole="t活動" ToRole="t活動日期" />
+          <NavigationProperty Name="t活動圖片" Relationship="Self.FK_t活動圖片_t活動" FromRole="t活動" ToRole="t活動圖片" />
+          <NavigationProperty Name="t評鑑" Relationship="Self.FK_t評鑑_t活動" FromRole="t活動" ToRole="t評鑑" />
+          <NavigationProperty Name="t會員喜愛活動" Relationship="Self.FK_t會員喜愛活動_t活動" FromRole="t活動" ToRole="t會員喜愛活動" />
+        </EntityType>
+        <EntityType Name="t活動日期">
+          <Key>
+            <PropertyRef Name="f活動日期編號" />
+          </Key>
+          <Property Name="f活動日期編號" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f活動編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f日期" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="t活動" Relationship="Self.FK_t活動日期_t活動" FromRole="t活動日期" ToRole="t活動" />
+          <NavigationProperty Name="t活動場次" Relationship="Self.FK_t活動場次_t活動日期" FromRole="t活動日期" ToRole="t活動場次" />
+        </EntityType>
+        <EntityType Name="t活動票券">
+          <Key>
+            <PropertyRef Name="f票券編號" />
+          </Key>
+          <Property Name="f票券編號" Type="String" MaxLength="24" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f場次編號" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="f票券名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="f票券金額" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="f票券庫存" Type="Int32" />
+          <Property Name="f票券已售數量" Type="Int32" />
+          <NavigationProperty Name="t活動場次" Relationship="Self.FK_t活動票券_t活動場次" FromRole="t活動票券" ToRole="t活動場次" />
+          <NavigationProperty Name="t票券訂單明細" Relationship="Self.FK_t票券訂單明細_t活動票券" FromRole="t活動票券" ToRole="t票券訂單明細" />
+          <NavigationProperty Name="t票券購物車" Relationship="Self.FK_t票券購物車_t活動票券" FromRole="t活動票券" ToRole="t票券購物車" />
+        </EntityType>
+        <EntityType Name="t活動場次">
+          <Key>
+            <PropertyRef Name="f場次編號" />
+          </Key>
+          <Property Name="f場次編號" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f活動日期編號" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+          <Property Name="f場次名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="f場次城市編號" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="f場次地區編號" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="f場次地址" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="f開始時間" Type="Time" Precision="7" />
+          <Property Name="f結束時間" Type="Time" Precision="7" />
+          <Property Name="f場次備註" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="t活動日期" Relationship="Self.FK_t活動場次_t活動日期" FromRole="t活動場次" ToRole="t活動日期" />
+          <NavigationProperty Name="t活動票券" Relationship="Self.FK_t活動票券_t活動場次" FromRole="t活動場次" ToRole="t活動票券" />
+        </EntityType>
+        <EntityType Name="t活動圖片">
+          <Key>
+            <PropertyRef Name="f圖片編號" />
+          </Key>
+          <Property Name="f圖片編號" Type="Int32" Nullable="false" />
+          <Property Name="f活動編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f活動圖片" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="t活動" Relationship="Self.FK_t活動圖片_t活動" FromRole="t活動圖片" ToRole="t活動" />
+        </EntityType>
+        <EntityType Name="t商品">
+          <Key>
+            <PropertyRef Name="f商品編號" />
+          </Key>
+          <Property Name="f商品編號" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f活動編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f商品名稱" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="f商品描述" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f上架時間" Type="DateTime" Precision="3" />
+          <Property Name="f販賣價格" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="f庫存" Type="Int32" />
+          <Property Name="f已售數量" Type="Int32" />
+          <Property Name="f上架狀態" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="t商品訂單">
+          <Key>
+            <PropertyRef Name="f商品訂單編號" />
+          </Key>
+          <Property Name="f商品訂單編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f商品訂單日期" Type="DateTime" Precision="0" />
+          <Property Name="f商品到貨日期" Type="DateTime" Precision="0" />
+          <Property Name="f收貨人" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="f收貨地址" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f商品訂單狀態編號" Type="Int32" />
+          <Property Name="f完成時間" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="t商品訂單明細">
+          <Key>
+            <PropertyRef Name="f商品編號" />
+            <PropertyRef Name="f商品訂單編號" />
+          </Key>
+          <Property Name="f商品編號" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f商品訂單編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f商品數量" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t商品訂單狀態">
+          <Key>
+            <PropertyRef Name="f商品訂單狀態編號" />
+          </Key>
+          <Property Name="f商品訂單狀態編號" Type="Int32" Nullable="false" />
+          <Property Name="f商品訂單狀態名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t商品圖片">
+          <Key>
+            <PropertyRef Name="f商品圖片編號" />
+          </Key>
+          <Property Name="f商品圖片編號" Type="Int32" Nullable="false" />
+          <Property Name="f商品編號" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+          <Property Name="f商品圖片" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t票券訂單">
+          <Key>
+            <PropertyRef Name="f票券訂單編號" />
+          </Key>
+          <Property Name="f票券訂單編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f票券訂單日期" Type="DateTime" Precision="0" />
+          <Property Name="fQR圖片" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="t一般會員" Relationship="Self.FK_t票券訂單_t一般會員" FromRole="t票券訂單" ToRole="t一般會員" />
+          <NavigationProperty Name="t票券訂單明細" Relationship="Self.FK_t票券訂單明細_t票券訂單" FromRole="t票券訂單" ToRole="t票券訂單明細" />
+        </EntityType>
+        <EntityType Name="t票券訂單明細">
+          <Key>
+            <PropertyRef Name="f票券編號" />
+            <PropertyRef Name="f票券訂單編號" />
+          </Key>
+          <Property Name="f票券編號" Type="String" MaxLength="24" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f票券訂單編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f票券數量" Type="Int32" />
+          <NavigationProperty Name="t活動票券" Relationship="Self.FK_t票券訂單明細_t活動票券" FromRole="t票券訂單明細" ToRole="t活動票券" />
+          <NavigationProperty Name="t票券訂單" Relationship="Self.FK_t票券訂單明細_t票券訂單" FromRole="t票券訂單明細" ToRole="t票券訂單" />
+        </EntityType>
+        <EntityType Name="t票券購物車">
+          <Key>
+            <PropertyRef Name="f票券編號" />
+            <PropertyRef Name="f會員編號" />
+          </Key>
+          <Property Name="f票券編號" Type="String" MaxLength="24" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="票券數量" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="t一般會員" Relationship="Self.FK_t票券購物車_t一般會員" FromRole="t票券購物車" ToRole="t一般會員" />
+          <NavigationProperty Name="t活動票券" Relationship="Self.FK_t票券購物車_t活動票券" FromRole="t票券購物車" ToRole="t活動票券" />
+        </EntityType>
+        <EntityType Name="t聊天室">
+          <Key>
+            <PropertyRef Name="f聊天室編號" />
+          </Key>
+          <Property Name="f聊天室編號" Type="Int32" Nullable="false" />
+          <Property Name="f一般會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f企業會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f發話方編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f聊天內容" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t評鑑">
+          <Key>
+            <PropertyRef Name="f評鑑編號" />
+          </Key>
+          <Property Name="f評鑑編號" Type="Int32" Nullable="false" />
+          <Property Name="f活動編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f評鑑分數" Type="Decimal" Precision="2" Scale="1" />
+          <Property Name="f評鑑內容" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="f會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="t一般會員" Relationship="Self.FK_t評鑑_t一般會員" FromRole="t評鑑" ToRole="t一般會員" />
+          <NavigationProperty Name="t活動" Relationship="Self.FK_t評鑑_t活動" FromRole="t評鑑" ToRole="t活動" />
+        </EntityType>
+        <EntityType Name="t會員喜愛次主題">
+          <Key>
+            <PropertyRef Name="f會員喜愛次主題流水號" />
+          </Key>
+          <Property Name="f會員喜愛次主題流水號" Type="Int32" Nullable="false" />
+          <Property Name="f會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f次主題編號" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="t一般會員" Relationship="Self.FK_t會員喜愛次主題_t一般會員" FromRole="t會員喜愛次主題" ToRole="t一般會員" />
+          <NavigationProperty Name="t次主題類型" Relationship="Self.FK_t會員喜愛次主題_t次主題類型" FromRole="t會員喜愛次主題" ToRole="t次主題類型" />
+        </EntityType>
+        <EntityType Name="t會員喜愛活動">
+          <Key>
+            <PropertyRef Name="f喜愛活動流水號" />
+          </Key>
+          <Property Name="f喜愛活動流水號" Type="Int32" Nullable="false" />
+          <Property Name="f會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f活動編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="t一般會員" Relationship="Self.FK_t會員喜愛活動_t一般會員" FromRole="t會員喜愛活動" ToRole="t一般會員" />
+          <NavigationProperty Name="t活動" Relationship="Self.FK_t會員喜愛活動_t活動" FromRole="t會員喜愛活動" ToRole="t活動" />
+        </EntityType>
+        <EntityType Name="t會員最愛行事曆">
+          <Key>
+            <PropertyRef Name="f行事曆編號" />
+            <PropertyRef Name="f會員編號" />
+          </Key>
+          <Property Name="f行事曆編號" Type="String" MaxLength="14" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f收藏時間" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="t管理者資料表">
+          <Key>
+            <PropertyRef Name="f管理者編號" />
+          </Key>
+          <Property Name="f管理者編號" Type="Int32" Nullable="false" />
+          <Property Name="f管理者帳號" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="f管理者密碼" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="f管理者名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="f管理者電話" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f個人照片" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f帳號狀態" Type="Boolean" />
+          <Property Name="f上次登入時間" Type="DateTime" Precision="3" />
+          <Property Name="f管理者信箱" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="f簡介" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f地址" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f創建時間" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="t廣告">
+          <Key>
+            <PropertyRef Name="f廣告編號" />
+          </Key>
+          <Property Name="f廣告編號" Type="Int32" Nullable="false" />
+          <Property Name="f企業編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f廣告名稱" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="f廣告內容" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="f起始日期" Type="DateTime" Precision="0" />
+          <Property Name="f結束日期" Type="DateTime" Precision="0" />
+          <Property Name="f瀏覽次數" Type="Int32" />
+          <Property Name="f廣告圖片" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f廣告網址" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f廣告上下架" Type="Boolean" />
+          <NavigationProperty Name="t企業會員" Relationship="Self.FK_t廣告_t企業會員" FromRole="t廣告" ToRole="t企業會員" />
+        </EntityType>
+        <EntityType Name="t論壇文章留言">
+          <Key>
+            <PropertyRef Name="f文章編號" />
+            <PropertyRef Name="f留言編號" />
+          </Key>
+          <Property Name="f文章編號" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f留言編號" Type="Int32" Nullable="false" />
+          <Property Name="f留言內容" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="f會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f發布時間" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="t論壇文章資料表">
+          <Key>
+            <PropertyRef Name="f文章編號" />
+          </Key>
+          <Property Name="f文章編號" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="f主題編號" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="f文章標題" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="f文章內容" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="f發布時間" Type="DateTime" Precision="3" />
+          <Property Name="f會員編號" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="f文章瀏覽數" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_t一般會員_t地區">
+          <End Role="t地區" Type="Self.t地區" Multiplicity="0..1" />
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t地區">
+              <PropertyRef Name="f地區郵遞區號" />
+            </Principal>
+            <Dependent Role="t一般會員">
+              <PropertyRef Name="f郵遞區號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t一般會員_t城市">
+          <End Role="t城市" Type="Self.t城市" Multiplicity="0..1" />
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t城市">
+              <PropertyRef Name="f城市編號" />
+            </Principal>
+            <Dependent Role="t一般會員">
+              <PropertyRef Name="f城市編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t行事曆_t一般會員">
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="0..1" />
+          <End Role="t行事曆" Type="Self.t行事曆" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t一般會員">
+              <PropertyRef Name="f會員編號" />
+            </Principal>
+            <Dependent Role="t行事曆">
+              <PropertyRef Name="f會員編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t票券訂單_t一般會員">
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="0..1" />
+          <End Role="t票券訂單" Type="Self.t票券訂單" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t一般會員">
+              <PropertyRef Name="f會員編號" />
+            </Principal>
+            <Dependent Role="t票券訂單">
+              <PropertyRef Name="f會員編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t票券購物車_t一般會員">
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="1" />
+          <End Role="t票券購物車" Type="Self.t票券購物車" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t一般會員">
+              <PropertyRef Name="f會員編號" />
+            </Principal>
+            <Dependent Role="t票券購物車">
+              <PropertyRef Name="f會員編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t評鑑_t一般會員">
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="0..1" />
+          <End Role="t評鑑" Type="Self.t評鑑" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t一般會員">
+              <PropertyRef Name="f會員編號" />
+            </Principal>
+            <Dependent Role="t評鑑">
+              <PropertyRef Name="f會員編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t會員喜愛次主題_t一般會員">
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="1" />
+          <End Role="t會員喜愛次主題" Type="Self.t會員喜愛次主題" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t一般會員">
+              <PropertyRef Name="f會員編號" />
+            </Principal>
+            <Dependent Role="t會員喜愛次主題">
+              <PropertyRef Name="f會員編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t會員喜愛活動_t一般會員">
+          <End Role="t一般會員" Type="Self.t一般會員" Multiplicity="1" />
+          <End Role="t會員喜愛活動" Type="Self.t會員喜愛活動" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t一般會員">
+              <PropertyRef Name="f會員編號" />
+            </Principal>
+            <Dependent Role="t會員喜愛活動">
+              <PropertyRef Name="f會員編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t次主題類型_t主題類型">
+          <End Role="t主題類型" Type="Self.t主題類型" Multiplicity="1" />
+          <End Role="t次主題類型" Type="Self.t次主題類型" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t主題類型">
+              <PropertyRef Name="f主題編號" />
+            </Principal>
+            <Dependent Role="t次主題類型">
+              <PropertyRef Name="f主題編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t企業會員_t地區">
+          <End Role="t地區" Type="Self.t地區" Multiplicity="0..1" />
+          <End Role="t企業會員" Type="Self.t企業會員" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t地區">
+              <PropertyRef Name="f地區郵遞區號" />
+            </Principal>
+            <Dependent Role="t企業會員">
+              <PropertyRef Name="f郵遞區號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t企業會員_t城市">
+          <End Role="t城市" Type="Self.t城市" Multiplicity="0..1" />
+          <End Role="t企業會員" Type="Self.t企業會員" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t城市">
+              <PropertyRef Name="f城市編號" />
+            </Principal>
+            <Dependent Role="t企業會員">
+              <PropertyRef Name="f城市編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t活動_t企業會員">
+          <End Role="t企業會員" Type="Self.t企業會員" Multiplicity="0..1" />
+          <End Role="t活動" Type="Self.t活動" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t企業會員">
+              <PropertyRef Name="f企業編號" />
+            </Principal>
+            <Dependent Role="t活動">
+              <PropertyRef Name="f企業編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t廣告_t企業會員">
+          <End Role="t企業會員" Type="Self.t企業會員" Multiplicity="0..1" />
+          <End Role="t廣告" Type="Self.t廣告" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t企業會員">
+              <PropertyRef Name="f企業編號" />
+            </Principal>
+            <Dependent Role="t廣告">
+              <PropertyRef Name="f企業編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t地區_t城市">
+          <End Role="t城市" Type="Self.t城市" Multiplicity="1" />
+          <End Role="t地區" Type="Self.t地區" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t城市">
+              <PropertyRef Name="f城市編號" />
+            </Principal>
+            <Dependent Role="t地區">
+              <PropertyRef Name="f城市編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t活動_t次主題類型">
+          <End Role="t次主題類型" Type="Self.t次主題類型" Multiplicity="0..1" />
+          <End Role="t活動" Type="Self.t活動" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t次主題類型">
+              <PropertyRef Name="f次主題編號" />
+            </Principal>
+            <Dependent Role="t活動">
+              <PropertyRef Name="f次主題編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t會員喜愛次主題_t次主題類型">
+          <End Role="t次主題類型" Type="Self.t次主題類型" Multiplicity="1" />
+          <End Role="t會員喜愛次主題" Type="Self.t會員喜愛次主題" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t次主題類型">
+              <PropertyRef Name="f次主題編號" />
+            </Principal>
+            <Dependent Role="t會員喜愛次主題">
+              <PropertyRef Name="f次主題編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t行事曆明細_t行事曆">
+          <End Role="t行事曆" Type="Self.t行事曆" Multiplicity="1" />
+          <End Role="t行事曆明細" Type="Self.t行事曆明細" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t行事曆">
+              <PropertyRef Name="f行事曆編號" />
+            </Principal>
+            <Dependent Role="t行事曆明細">
+              <PropertyRef Name="f行事曆編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t活動日期_t活動">
+          <End Role="t活動" Type="Self.t活動" Multiplicity="0..1" />
+          <End Role="t活動日期" Type="Self.t活動日期" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動">
+              <PropertyRef Name="f活動編號" />
+            </Principal>
+            <Dependent Role="t活動日期">
+              <PropertyRef Name="f活動編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t活動圖片_t活動">
+          <End Role="t活動" Type="Self.t活動" Multiplicity="0..1" />
+          <End Role="t活動圖片" Type="Self.t活動圖片" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動">
+              <PropertyRef Name="f活動編號" />
+            </Principal>
+            <Dependent Role="t活動圖片">
+              <PropertyRef Name="f活動編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t評鑑_t活動">
+          <End Role="t活動" Type="Self.t活動" Multiplicity="0..1" />
+          <End Role="t評鑑" Type="Self.t評鑑" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動">
+              <PropertyRef Name="f活動編號" />
+            </Principal>
+            <Dependent Role="t評鑑">
+              <PropertyRef Name="f活動編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t會員喜愛活動_t活動">
+          <End Role="t活動" Type="Self.t活動" Multiplicity="1" />
+          <End Role="t會員喜愛活動" Type="Self.t會員喜愛活動" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動">
+              <PropertyRef Name="f活動編號" />
+            </Principal>
+            <Dependent Role="t會員喜愛活動">
+              <PropertyRef Name="f活動編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t活動場次_t活動日期">
+          <End Role="t活動日期" Type="Self.t活動日期" Multiplicity="0..1" />
+          <End Role="t活動場次" Type="Self.t活動場次" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動日期">
+              <PropertyRef Name="f活動日期編號" />
+            </Principal>
+            <Dependent Role="t活動場次">
+              <PropertyRef Name="f活動日期編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t活動票券_t活動場次">
+          <End Role="t活動場次" Type="Self.t活動場次" Multiplicity="0..1" />
+          <End Role="t活動票券" Type="Self.t活動票券" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動場次">
+              <PropertyRef Name="f場次編號" />
+            </Principal>
+            <Dependent Role="t活動票券">
+              <PropertyRef Name="f場次編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t票券訂單明細_t活動票券">
+          <End Role="t活動票券" Type="Self.t活動票券" Multiplicity="1" />
+          <End Role="t票券訂單明細" Type="Self.t票券訂單明細" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動票券">
+              <PropertyRef Name="f票券編號" />
+            </Principal>
+            <Dependent Role="t票券訂單明細">
+              <PropertyRef Name="f票券編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t票券購物車_t活動票券">
+          <End Role="t活動票券" Type="Self.t活動票券" Multiplicity="1" />
+          <End Role="t票券購物車" Type="Self.t票券購物車" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t活動票券">
+              <PropertyRef Name="f票券編號" />
+            </Principal>
+            <Dependent Role="t票券購物車">
+              <PropertyRef Name="f票券編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t票券訂單明細_t票券訂單">
+          <End Role="t票券訂單" Type="Self.t票券訂單" Multiplicity="1" />
+          <End Role="t票券訂單明細" Type="Self.t票券訂單明細" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t票券訂單">
+              <PropertyRef Name="f票券訂單編號" />
+            </Principal>
+            <Dependent Role="t票券訂單明細">
+              <PropertyRef Name="f票券訂單編號" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbEventFunEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="t一般會員" EntityType="Self.t一般會員" />
+          <EntitySet Name="t主題聊天室" EntityType="Self.t主題聊天室" />
+          <EntitySet Name="t主題類型" EntityType="Self.t主題類型" />
+          <EntitySet Name="t企業會員" EntityType="Self.t企業會員" />
+          <EntitySet Name="t地區" EntityType="Self.t地區" />
+          <EntitySet Name="t次主題類型" EntityType="Self.t次主題類型" />
+          <EntitySet Name="t行事曆" EntityType="Self.t行事曆" />
+          <EntitySet Name="t行事曆明細" EntityType="Self.t行事曆明細" />
+          <EntitySet Name="t城市" EntityType="Self.t城市" />
+          <EntitySet Name="t活動" EntityType="Self.t活動" />
+          <EntitySet Name="t活動日期" EntityType="Self.t活動日期" />
+          <EntitySet Name="t活動票券" EntityType="Self.t活動票券" />
+          <EntitySet Name="t活動場次" EntityType="Self.t活動場次" />
+          <EntitySet Name="t活動圖片" EntityType="Self.t活動圖片" />
+          <EntitySet Name="t商品" EntityType="Self.t商品" />
+          <EntitySet Name="t商品訂單" EntityType="Self.t商品訂單" />
+          <EntitySet Name="t商品訂單明細" EntityType="Self.t商品訂單明細" />
+          <EntitySet Name="t商品訂單狀態" EntityType="Self.t商品訂單狀態" />
+          <EntitySet Name="t商品圖片" EntityType="Self.t商品圖片" />
+          <EntitySet Name="t票券訂單" EntityType="Self.t票券訂單" />
+          <EntitySet Name="t票券訂單明細" EntityType="Self.t票券訂單明細" />
+          <EntitySet Name="t票券購物車" EntityType="Self.t票券購物車" />
+          <EntitySet Name="t聊天室" EntityType="Self.t聊天室" />
+          <EntitySet Name="t評鑑" EntityType="Self.t評鑑" />
+          <EntitySet Name="t會員喜愛次主題" EntityType="Self.t會員喜愛次主題" />
+          <EntitySet Name="t會員喜愛活動" EntityType="Self.t會員喜愛活動" />
+          <EntitySet Name="t會員最愛行事曆" EntityType="Self.t會員最愛行事曆" />
+          <EntitySet Name="t管理者資料表" EntityType="Self.t管理者資料表" />
+          <EntitySet Name="t廣告" EntityType="Self.t廣告" />
+          <EntitySet Name="t論壇文章留言" EntityType="Self.t論壇文章留言" />
+          <EntitySet Name="t論壇文章資料表" EntityType="Self.t論壇文章資料表" />
+          <AssociationSet Name="FK_t一般會員_t地區" Association="Self.FK_t一般會員_t地區">
+            <End Role="t地區" EntitySet="t地區" />
+            <End Role="t一般會員" EntitySet="t一般會員" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t一般會員_t城市" Association="Self.FK_t一般會員_t城市">
+            <End Role="t城市" EntitySet="t城市" />
+            <End Role="t一般會員" EntitySet="t一般會員" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t行事曆_t一般會員" Association="Self.FK_t行事曆_t一般會員">
+            <End Role="t一般會員" EntitySet="t一般會員" />
+            <End Role="t行事曆" EntitySet="t行事曆" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t票券訂單_t一般會員" Association="Self.FK_t票券訂單_t一般會員">
+            <End Role="t一般會員" EntitySet="t一般會員" />
+            <End Role="t票券訂單" EntitySet="t票券訂單" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t票券購物車_t一般會員" Association="Self.FK_t票券購物車_t一般會員">
+            <End Role="t一般會員" EntitySet="t一般會員" />
+            <End Role="t票券購物車" EntitySet="t票券購物車" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t評鑑_t一般會員" Association="Self.FK_t評鑑_t一般會員">
+            <End Role="t一般會員" EntitySet="t一般會員" />
+            <End Role="t評鑑" EntitySet="t評鑑" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t會員喜愛次主題_t一般會員" Association="Self.FK_t會員喜愛次主題_t一般會員">
+            <End Role="t一般會員" EntitySet="t一般會員" />
+            <End Role="t會員喜愛次主題" EntitySet="t會員喜愛次主題" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t會員喜愛活動_t一般會員" Association="Self.FK_t會員喜愛活動_t一般會員">
+            <End Role="t一般會員" EntitySet="t一般會員" />
+            <End Role="t會員喜愛活動" EntitySet="t會員喜愛活動" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t次主題類型_t主題類型" Association="Self.FK_t次主題類型_t主題類型">
+            <End Role="t主題類型" EntitySet="t主題類型" />
+            <End Role="t次主題類型" EntitySet="t次主題類型" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t企業會員_t地區" Association="Self.FK_t企業會員_t地區">
+            <End Role="t地區" EntitySet="t地區" />
+            <End Role="t企業會員" EntitySet="t企業會員" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t企業會員_t城市" Association="Self.FK_t企業會員_t城市">
+            <End Role="t城市" EntitySet="t城市" />
+            <End Role="t企業會員" EntitySet="t企業會員" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t活動_t企業會員" Association="Self.FK_t活動_t企業會員">
+            <End Role="t企業會員" EntitySet="t企業會員" />
+            <End Role="t活動" EntitySet="t活動" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t廣告_t企業會員" Association="Self.FK_t廣告_t企業會員">
+            <End Role="t企業會員" EntitySet="t企業會員" />
+            <End Role="t廣告" EntitySet="t廣告" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t地區_t城市" Association="Self.FK_t地區_t城市">
+            <End Role="t城市" EntitySet="t城市" />
+            <End Role="t地區" EntitySet="t地區" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t活動_t次主題類型" Association="Self.FK_t活動_t次主題類型">
+            <End Role="t次主題類型" EntitySet="t次主題類型" />
+            <End Role="t活動" EntitySet="t活動" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t會員喜愛次主題_t次主題類型" Association="Self.FK_t會員喜愛次主題_t次主題類型">
+            <End Role="t次主題類型" EntitySet="t次主題類型" />
+            <End Role="t會員喜愛次主題" EntitySet="t會員喜愛次主題" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t行事曆明細_t行事曆" Association="Self.FK_t行事曆明細_t行事曆">
+            <End Role="t行事曆" EntitySet="t行事曆" />
+            <End Role="t行事曆明細" EntitySet="t行事曆明細" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t活動日期_t活動" Association="Self.FK_t活動日期_t活動">
+            <End Role="t活動" EntitySet="t活動" />
+            <End Role="t活動日期" EntitySet="t活動日期" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t活動圖片_t活動" Association="Self.FK_t活動圖片_t活動">
+            <End Role="t活動" EntitySet="t活動" />
+            <End Role="t活動圖片" EntitySet="t活動圖片" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t評鑑_t活動" Association="Self.FK_t評鑑_t活動">
+            <End Role="t活動" EntitySet="t活動" />
+            <End Role="t評鑑" EntitySet="t評鑑" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t會員喜愛活動_t活動" Association="Self.FK_t會員喜愛活動_t活動">
+            <End Role="t活動" EntitySet="t活動" />
+            <End Role="t會員喜愛活動" EntitySet="t會員喜愛活動" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t活動場次_t活動日期" Association="Self.FK_t活動場次_t活動日期">
+            <End Role="t活動日期" EntitySet="t活動日期" />
+            <End Role="t活動場次" EntitySet="t活動場次" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t活動票券_t活動場次" Association="Self.FK_t活動票券_t活動場次">
+            <End Role="t活動場次" EntitySet="t活動場次" />
+            <End Role="t活動票券" EntitySet="t活動票券" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t票券訂單明細_t活動票券" Association="Self.FK_t票券訂單明細_t活動票券">
+            <End Role="t活動票券" EntitySet="t活動票券" />
+            <End Role="t票券訂單明細" EntitySet="t票券訂單明細" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t票券購物車_t活動票券" Association="Self.FK_t票券購物車_t活動票券">
+            <End Role="t活動票券" EntitySet="t活動票券" />
+            <End Role="t票券購物車" EntitySet="t票券購物車" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t票券訂單明細_t票券訂單" Association="Self.FK_t票券訂單明細_t票券訂單">
+            <End Role="t票券訂單" EntitySet="t票券訂單" />
+            <End Role="t票券訂單明細" EntitySet="t票券訂單明細" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbEventFunModelStoreContainer" CdmEntityContainer="dbEventFunEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="dbEventFunModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t一般會員">
+            <EntityTypeMapping TypeName="dbEventFunModel.t一般會員">
+              <MappingFragment StoreEntitySet="t一般會員">
+                <ScalarProperty Name="f會員編號" ColumnName="f會員編號" />
+                <ScalarProperty Name="f會員帳號" ColumnName="f會員帳號" />
+                <ScalarProperty Name="f會員密碼" ColumnName="f會員密碼" />
+                <ScalarProperty Name="f會員信箱" ColumnName="f會員信箱" />
+                <ScalarProperty Name="f會員名稱" ColumnName="f會員名稱" />
+                <ScalarProperty Name="f會員性別" ColumnName="f會員性別" />
+                <ScalarProperty Name="f出生年月日" ColumnName="f出生年月日" />
+                <ScalarProperty Name="f會員簡介" ColumnName="f會員簡介" />
+                <ScalarProperty Name="f會員行動電話" ColumnName="f會員行動電話" />
+                <ScalarProperty Name="f城市編號" ColumnName="f城市編號" />
+                <ScalarProperty Name="f郵遞區號" ColumnName="f郵遞區號" />
+                <ScalarProperty Name="f地址" ColumnName="f地址" />
+                <ScalarProperty Name="f會員照片" ColumnName="f會員照片" />
+                <ScalarProperty Name="f帳號狀態" ColumnName="f帳號狀態" />
+                <ScalarProperty Name="f上次登入時間" ColumnName="f上次登入時間" />
+                <ScalarProperty Name="f創建時間" ColumnName="f創建時間" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t主題聊天室">
+            <EntityTypeMapping TypeName="dbEventFunModel.t主題聊天室">
+              <MappingFragment StoreEntitySet="t主題聊天室">
+                <ScalarProperty Name="f聊天訊息編號" ColumnName="f聊天訊息編號" />
+                <ScalarProperty Name="f主題類型編號" ColumnName="f主題類型編號" />
+                <ScalarProperty Name="f會員編號" ColumnName="f會員編號" />
+                <ScalarProperty Name="f內容" ColumnName="f內容" />
+                <ScalarProperty Name="f時間" ColumnName="f時間" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t主題類型">
+            <EntityTypeMapping TypeName="dbEventFunModel.t主題類型">
+              <MappingFragment StoreEntitySet="t主題類型">
+                <ScalarProperty Name="f主題編號" ColumnName="f主題編號" />
+                <ScalarProperty Name="f主題名稱" ColumnName="f主題名稱" />
+                <ScalarProperty Name="f主題狀態" ColumnName="f主題狀態" />
+                <ScalarProperty Name="f主題優先度" ColumnName="f主題優先度" />
+                <ScalarProperty Name="f在線人數" ColumnName="f在線人數" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t企業會員">
+            <EntityTypeMapping TypeName="dbEventFunModel.t企業會員">
+              <MappingFragment StoreEntitySet="t企業會員">
+                <ScalarProperty Name="f企業編號" ColumnName="f企業編號" />
+                <ScalarProperty Name="f統一編號" ColumnName="f統一編號" />
+                <ScalarProperty Name="f企業帳號" ColumnName="f企業帳號" />
+                <ScalarProperty Name="f企業密碼" ColumnName="f企業密碼" />
+                <ScalarProperty Name="f企業名稱" ColumnName="f企業名稱" />
+                <ScalarProperty Name="f企業簡介" ColumnName="f企業簡介" />
+                <ScalarProperty Name="f企業電話" ColumnName="f企業電話" />
+                <ScalarProperty Name="f城市編號" ColumnName="f城市編號" />
+                <ScalarProperty Name="f郵遞區號" ColumnName="f郵遞區號" />
+                <ScalarProperty Name="f企業地址" ColumnName="f企業地址" />
+                <ScalarProperty Name="f聯絡人" ColumnName="f聯絡人" />
+                <ScalarProperty Name="f聯絡人行動電話" ColumnName="f聯絡人行動電話" />
+                <ScalarProperty Name="f企業照片" ColumnName="f企業照片" />
+                <ScalarProperty Name="f企業信箱" ColumnName="f企業信箱" />
+                <ScalarProperty Name="f企業創建日期" ColumnName="f企業創建日期" />
+                <ScalarProperty Name="f企業帳號狀態" ColumnName="f企業帳號狀態" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t地區">
+            <EntityTypeMapping TypeName="dbEventFunModel.t地區">
+              <MappingFragment StoreEntitySet="t地區">
+                <ScalarProperty Name="f城市編號" ColumnName="f城市編號" />
+                <ScalarProperty Name="f地區郵遞區號" ColumnName="f地區郵遞區號" />
+                <ScalarProperty Name="f地區名稱" ColumnName="f地區名稱" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t次主題類型">
+            <EntityTypeMapping TypeName="dbEventFunModel.t次主題類型">
+              <MappingFragment StoreEntitySet="t次主題類型">
+                <ScalarProperty Name="f次主題編號" ColumnName="f次主題編號" />
+                <ScalarProperty Name="f主題編號" ColumnName="f主題編號" />
+                <ScalarProperty Name="f次主題名稱" ColumnName="f次主題名稱" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t行事曆">
+            <EntityTypeMapping TypeName="dbEventFunModel.t行事曆">
+              <MappingFragment StoreEntitySet="t行事曆">
+                <ScalarProperty Name="f行事曆編號" ColumnName="f行事曆編號" />
+                <ScalarProperty Name="f會員編號" ColumnName="f會員編號" />
+                <ScalarProperty Name="f行事曆名稱" ColumnName="f行事曆名稱" />
+                <ScalarProperty Name="f行事曆建立時間" ColumnName="f行事曆建立時間" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t行事曆明細">
+            <EntityTypeMapping TypeName="dbEventFunModel.t行事曆明細">
+              <MappingFragment StoreEntitySet="t行事曆明細">
+                <ScalarProperty Name="f行事曆明細編號" ColumnName="f行事曆明細編號" />
+                <ScalarProperty Name="f行事曆編號" ColumnName="f行事曆編號" />
+                <ScalarProperty Name="f場次編號" ColumnName="f場次編號" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t城市">
+            <EntityTypeMapping TypeName="dbEventFunModel.t城市">
+              <MappingFragment StoreEntitySet="t城市">
+                <ScalarProperty Name="f城市編號" ColumnName="f城市編號" />
+                <ScalarProperty Name="f城市名稱" ColumnName="f城市名稱" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t活動">
+            <EntityTypeMapping TypeName="dbEventFunModel.t活動">
+              <MappingFragment StoreEntitySet="t活動">
+                <ScalarProperty Name="f活動編號" ColumnName="f活動編號" />
+                <ScalarProperty Name="f次主題編號" ColumnName="f次主題編號" />
+                <ScalarProperty Name="f企業編號" ColumnName="f企業編號" />
+                <ScalarProperty Name="f活動聯絡人" ColumnName="f活動聯絡人" />
+                <ScalarProperty Name="f聯絡人電話" ColumnName="f聯絡人電話" />
+                <ScalarProperty Name="f聯絡人信箱" ColumnName="f聯絡人信箱" />
+                <ScalarProperty Name="f活動名稱" ColumnName="f活動名稱" />
+                <ScalarProperty Name="f活動網址" ColumnName="f活動網址" />
+                <ScalarProperty Name="f活動簡介" ColumnName="f活動簡介" />
+                <ScalarProperty Name="f活動內容" ColumnName="f活動內容" />
+                <ScalarProperty Name="f人氣" ColumnName="f人氣" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t活動日期">
+            <EntityTypeMapping TypeName="dbEventFunModel.t活動日期">
+              <MappingFragment StoreEntitySet="t活動日期">
+                <ScalarProperty Name="f活動日期編號" ColumnName="f活動日期編號" />
+                <ScalarProperty Name="f活動編號" ColumnName="f活動編號" />
+                <ScalarProperty Name="f日期" ColumnName="f日期" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t活動票券">
+            <EntityTypeMapping TypeName="dbEventFunModel.t活動票券">
+              <MappingFragment StoreEntitySet="t活動票券">
+                <ScalarProperty Name="f票券編號" ColumnName="f票券編號" />
+                <ScalarProperty Name="f場次編號" ColumnName="f場次編號" />
+                <ScalarProperty Name="f票券名稱" ColumnName="f票券名稱" />
+                <ScalarProperty Name="f票券金額" ColumnName="f票券金額" />
+                <ScalarProperty Name="f票券庫存" ColumnName="f票券庫存" />
+                <ScalarProperty Name="f票券已售數量" ColumnName="f票券已售數量" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t活動場次">
+            <EntityTypeMapping TypeName="dbEventFunModel.t活動場次">
+              <MappingFragment StoreEntitySet="t活動場次">
+                <ScalarProperty Name="f場次編號" ColumnName="f場次編號" />
+                <ScalarProperty Name="f活動日期編號" ColumnName="f活動日期編號" />
+                <ScalarProperty Name="f場次名稱" ColumnName="f場次名稱" />
+                <ScalarProperty Name="f場次城市編號" ColumnName="f場次城市編號" />
+                <ScalarProperty Name="f場次地區編號" ColumnName="f場次地區編號" />
+                <ScalarProperty Name="f場次地址" ColumnName="f場次地址" />
+                <ScalarProperty Name="f開始時間" ColumnName="f開始時間" />
+                <ScalarProperty Name="f結束時間" ColumnName="f結束時間" />
+                <ScalarProperty Name="f場次備註" ColumnName="f場次備註" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t活動圖片">
+            <EntityTypeMapping TypeName="dbEventFunModel.t活動圖片">
+              <MappingFragment StoreEntitySet="t活動圖片">
+                <ScalarProperty Name="f圖片編號" ColumnName="f圖片編號" />
+                <ScalarProperty Name="f活動編號" ColumnName="f活動編號" />
+                <ScalarProperty Name="f活動圖片" ColumnName="f活動圖片" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t商品">
+            <EntityTypeMapping TypeName="dbEventFunModel.t商品">
+              <MappingFragment StoreEntitySet="t商品">
+                <ScalarProperty Name="f商品編號" ColumnName="f商品編號" />
+                <ScalarProperty Name="f活動編號" ColumnName="f活動編號" />
+                <ScalarProperty Name="f商品名稱" ColumnName="f商品名稱" />
+                <ScalarProperty Name="f商品描述" ColumnName="f商品描述" />
+                <ScalarProperty Name="f上架時間" ColumnName="f上架時間" />
+                <ScalarProperty Name="f販賣價格" ColumnName="f販賣價格" />
+                <ScalarProperty Name="f庫存" ColumnName="f庫存" />
+                <ScalarProperty Name="f已售數量" ColumnName="f已售數量" />
+                <ScalarProperty Name="f上架狀態" ColumnName="f上架狀態" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t商品訂單">
+            <EntityTypeMapping TypeName="dbEventFunModel.t商品訂單">
+              <MappingFragment StoreEntitySet="t商品訂單">
+                <ScalarProperty Name="f商品訂單編號" ColumnName="f商品訂單編號" />
+                <ScalarProperty Name="f會員編號" ColumnName="f會員編號" />
+                <ScalarProperty Name="f商品訂單日期" ColumnName="f商品訂單日期" />
+                <ScalarProperty Name="f商品到貨日期" ColumnName="f商品到貨日期" />
+                <ScalarProperty Name="f收貨人" ColumnName="f收貨人" />
+                <ScalarProperty Name="f收貨地址" ColumnName="f收貨地址" />
+                <ScalarProperty Name="f商品訂單狀態編號" ColumnName="f商品訂單狀態編號" />
+                <ScalarProperty Name="f完成時間" ColumnName="f完成時間" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t商品訂單明細">
+            <EntityTypeMapping TypeName="dbEventFunModel.t商品訂單明細">
+              <MappingFragment StoreEntitySet="t商品訂單明細">
+                <ScalarProperty Name="f商品編號" ColumnName="f商品編號" />
+                <ScalarProperty Name="f商品訂單編號" ColumnName="f商品訂單編號" />
+                <ScalarProperty Name="f商品數量" ColumnName="f商品數量" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t商品訂單狀態">
+            <EntityTypeMapping TypeName="dbEventFunModel.t商品訂單狀態">
+              <MappingFragment StoreEntitySet="t商品訂單狀態">
+                <ScalarProperty Name="f商品訂單狀態編號" ColumnName="f商品訂單狀態編號" />
+                <ScalarProperty Name="f商品訂單狀態名稱" ColumnName="f商品訂單狀態名稱" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t商品圖片">
+            <EntityTypeMapping TypeName="dbEventFunModel.t商品圖片">
+              <MappingFragment StoreEntitySet="t商品圖片">
+                <ScalarProperty Name="f商品圖片編號" ColumnName="f商品圖片編號" />
+                <ScalarProperty Name="f商品編號" ColumnName="f商品編號" />
+                <ScalarProperty Name="f商品圖片" ColumnName="f商品圖片" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t票券訂單">
+            <EntityTypeMapping TypeName="dbEventFunModel.t票券訂單">
+              <MappingFragment StoreEntitySet="t票券訂單">
+                <ScalarProperty Name="f票券訂單編號" ColumnName="f票券訂單編號" />
+                <ScalarProperty Name="f會員編號" ColumnName="f會員編號" />
+                <ScalarProperty Name="f票券訂單日期" ColumnName="f票券訂單日期" />
+                <ScalarProperty Name="fQR圖片" ColumnName="fQR圖片" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t票券訂單明細">
+            <EntityTypeMapping TypeName="dbEventFunModel.t票券訂單明細">
+              <MappingFragment StoreEntitySet="t票券訂單明細">
+                <ScalarProperty Name="f票券編號" ColumnName="f票券編號" />
+                <ScalarProperty Name="f票券訂單編號" ColumnName="f票券訂單編號" />
+                <ScalarProperty Name="f票券數量" ColumnName="f票券數量" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t票券購物車">
+            <EntityTypeMapping TypeName="dbEventFunModel.t票券購物車">
+              <MappingFragment StoreEntitySet="t票券購物車">
+                <ScalarProperty Name="f票券編號" ColumnName="f票券編號" />
+                <ScalarProperty Name="f會員編號" ColumnName="f會員編號" />
+                <ScalarProperty Name="票券數量" ColumnName="票券數量" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t聊天室">
+            <EntityTypeMapping TypeName="dbEventFunModel.t聊天室">
+              <MappingFragment StoreEntitySet="t聊天室">
+                <ScalarProperty Name="f聊天室編號" ColumnName="f聊天室編號" />
+                <ScalarProperty Name="f一般會員編號" ColumnName="f一般會員編號" />
+                <ScalarProperty Name="f企業會員編號" ColumnName="f企業會員編號" />
+                <ScalarProperty Name="f發話方編號" ColumnName="f發話方編號" />
+                <ScalarProperty Name="f聊天內容" ColumnName="f聊天內容" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t評鑑">
+            <EntityTypeMapping TypeName="dbEventFunModel.t評鑑">
+              <MappingFragment StoreEntitySet="t評鑑">
+                <ScalarProperty Name="f評鑑編號" ColumnName="f評鑑編號" />
+                <ScalarProperty Name="f活動編號" ColumnName="f活動編號" />
+                <ScalarProperty Name="f評鑑分數" ColumnName="f評鑑分數" />
+                <ScalarProperty Name="f評鑑內容" ColumnName="f評鑑內容" />
+                <ScalarProperty Name="f會員編號" ColumnName="f會員編號" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t會員喜愛次主題">
+            <EntityTypeMapping TypeName="dbEventFunModel.t會員喜愛次主題">
+              <MappingFragment StoreEntitySet="t會員喜愛次主題">
+                <ScalarProperty Name="f會員喜愛次主題流水號" ColumnName="f會員喜愛次主題流水號" />
+                <ScalarProperty Name="f會員編號" ColumnName="f會員編號" />
+                <ScalarProperty Name="f次主題編號" ColumnName="f次主題編號" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t會員喜愛活動">
+            <EntityTypeMapping TypeName="dbEventFunModel.t會員喜愛活動">
+              <MappingFragment StoreEntitySet="t會員喜愛活動">
+                <ScalarProperty Name="f喜愛活動流水號" ColumnName="f喜愛活動流水號" />
+                <ScalarProperty Name="f會員編號" ColumnName="f會員編號" />
+                <ScalarProperty Name="f活動編號" ColumnName="f活動編號" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t會員最愛行事曆">
+            <EntityTypeMapping TypeName="dbEventFunModel.t會員最愛行事曆">
+              <MappingFragment StoreEntitySet="t會員最愛行事曆">
+                <ScalarProperty Name="f行事曆編號" ColumnName="f行事曆編號" />
+                <ScalarProperty Name="f會員編號" ColumnName="f會員編號" />
+                <ScalarProperty Name="f收藏時間" ColumnName="f收藏時間" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t管理者資料表">
+            <EntityTypeMapping TypeName="dbEventFunModel.t管理者資料表">
+              <MappingFragment StoreEntitySet="t管理者資料表">
+                <ScalarProperty Name="f管理者編號" ColumnName="f管理者編號" />
+                <ScalarProperty Name="f管理者帳號" ColumnName="f管理者帳號" />
+                <ScalarProperty Name="f管理者密碼" ColumnName="f管理者密碼" />
+                <ScalarProperty Name="f管理者名稱" ColumnName="f管理者名稱" />
+                <ScalarProperty Name="f管理者電話" ColumnName="f管理者電話" />
+                <ScalarProperty Name="f個人照片" ColumnName="f個人照片" />
+                <ScalarProperty Name="f帳號狀態" ColumnName="f帳號狀態" />
+                <ScalarProperty Name="f上次登入時間" ColumnName="f上次登入時間" />
+                <ScalarProperty Name="f管理者信箱" ColumnName="f管理者信箱" />
+                <ScalarProperty Name="f簡介" ColumnName="f簡介" />
+                <ScalarProperty Name="f地址" ColumnName="f地址" />
+                <ScalarProperty Name="f創建時間" ColumnName="f創建時間" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t廣告">
+            <EntityTypeMapping TypeName="dbEventFunModel.t廣告">
+              <MappingFragment StoreEntitySet="t廣告">
+                <ScalarProperty Name="f廣告編號" ColumnName="f廣告編號" />
+                <ScalarProperty Name="f企業編號" ColumnName="f企業編號" />
+                <ScalarProperty Name="f廣告名稱" ColumnName="f廣告名稱" />
+                <ScalarProperty Name="f廣告內容" ColumnName="f廣告內容" />
+                <ScalarProperty Name="f起始日期" ColumnName="f起始日期" />
+                <ScalarProperty Name="f結束日期" ColumnName="f結束日期" />
+                <ScalarProperty Name="f瀏覽次數" ColumnName="f瀏覽次數" />
+                <ScalarProperty Name="f廣告圖片" ColumnName="f廣告圖片" />
+                <ScalarProperty Name="f廣告網址" ColumnName="f廣告網址" />
+                <ScalarProperty Name="f廣告上下架" ColumnName="f廣告上下架" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t論壇文章留言">
+            <EntityTypeMapping TypeName="dbEventFunModel.t論壇文章留言">
+              <MappingFragment StoreEntitySet="t論壇文章留言">
+                <ScalarProperty Name="f文章編號" ColumnName="f文章編號" />
+                <ScalarProperty Name="f留言編號" ColumnName="f留言編號" />
+                <ScalarProperty Name="f留言內容" ColumnName="f留言內容" />
+                <ScalarProperty Name="f會員編號" ColumnName="f會員編號" />
+                <ScalarProperty Name="f發布時間" ColumnName="f發布時間" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t論壇文章資料表">
+            <EntityTypeMapping TypeName="dbEventFunModel.t論壇文章資料表">
+              <MappingFragment StoreEntitySet="t論壇文章資料表">
+                <ScalarProperty Name="f文章編號" ColumnName="f文章編號" />
+                <ScalarProperty Name="f主題編號" ColumnName="f主題編號" />
+                <ScalarProperty Name="f文章標題" ColumnName="f文章標題" />
+                <ScalarProperty Name="f文章內容" ColumnName="f文章內容" />
+                <ScalarProperty Name="f發布時間" ColumnName="f發布時間" />
+                <ScalarProperty Name="f會員編號" ColumnName="f會員編號" />
+                <ScalarProperty Name="f文章瀏覽數" ColumnName="f文章瀏覽數" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

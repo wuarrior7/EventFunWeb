@@ -1,0 +1,305 @@
+﻿@model IEnumerable<EventFunWeb.t活動>
+@{
+    ViewBag.Title = "EventList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+
+<div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(../images/hero_1.jpg);"
+     data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
+
+                <div class="row justify-content-center">
+                    <div class="col-md-8 text-center">
+                        <h2 style="margin-top:150px">探索活動</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center " style="font-size:20px">
+        <div class="form-inline">
+            <ul class="navbar-nav mr-auto  ">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        主題
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">全部</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">音樂</a>
+                        <a class="dropdown-item" href="#">展覽</a>
+                        <a class="dropdown-item" href="#">親子</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        城市
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">全部</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">台北</a>
+                        <a class="dropdown-item" href="#">新北</a>
+                        <a class="dropdown-item" href="#">桃園</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        時間
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">全部</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">今天</a>
+                        <a class="dropdown-item" href="#">本周</a>
+                        <a class="dropdown-item" href="#">本月</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        票價
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">全部</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">付費</a>
+                        <a class="dropdown-item" href="#">免費</a>
+
+                    </div>
+                </li>
+            </ul>
+            <input class="form-control mr-sm-2" type="search" placeholder="找什麼?" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">收尋🔍</button>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row justify-content-center mb-5" style="float:left;">
+
+        </div>
+        <div class="site-section" data-aos="fade">
+
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+                    string imag ="/Content/images/activity/"+ @Html.DisplayFor(modelItem => item.f活動編號)+".jpg";
+                    <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                        <div class="listing-item">
+                            <div class="listing-image">
+                                <img src="@imag" alt="Free Website " class="img-fluid" style="width:350px;height:300px;">
+                            </div>
+                            <div class="listing-item-content">
+
+                                <a class="px-3 mb-3 category" href="#"> @Html.DisplayFor(modelItem => item.t次主題類型.f次主題名稱)</a>
+                               
+                                <h2 class="mb-1"> <a id="@item.f活動編號" href="EventDetails/@item.f活動編號"> @Html.DisplayFor(modelItem => item.f活動名稱)</a></h2>
+
+
+                            </div>
+                            <div class="listing-item-content">
+                                <a href="listings-single.html" class="bookmark" data-toggle="tooltip"
+                                   data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="../images/img_2.jpg" alt="Free Website Template by Free-Template.co"
+                                 class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a class="px-3 mb-3 category" href="#">Restaurants</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Jones Grill &amp; Restaurants</a></h2>
+                            <span class="address">Brooklyn, New York</span>
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark" data-toggle="tooltip"
+                               data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="../images/img_3.jpg" alt="Free Website Template by Free-Template.co"
+                                 class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a class="px-3 mb-3 category" href="#">Events</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Live Band</a></h2>
+                            <span class="address">West Orange, New York</span>
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark" data-toggle="tooltip"
+                               data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="../images/img_4.jpg" alt="Free Website Template by Free-Template.co"
+                                 class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a class="px-3 mb-3 category" href="#">Others</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Gourmet Coffees</a></h2>
+                            <span class="address">New York City</span>
+                        </div>
+                        <div class="listing-item-content">
+                            <span href="listings-single.html" class="bookmark">
+                                <span class="icon-heart"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="../images/img_5.jpg" alt="Free Website Template by Free-Template.co"
+                                 class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
+                            <a class="px-3 mb-3 category" href="#">Spa</a>
+                            <h2 class="mb-1"><a href="listings-single.html">La Italia Spa</a></h2>
+                            <span class="address">Italy</span>
+                        </div>
+
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="../images/img_6.jpg" alt="Free Website Template by Free-Template.co"
+                                 class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
+                            <a class="px-3 mb-3 category" href="#">Stores</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Super Market Mall</a></h2>
+                            <span class="address">West Orange, New York</span>
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="../images/img_2.jpg" alt="Free Website Template by Free-Template.co"
+                                 class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a class="px-3 mb-3 category" href="#">Restaurants</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Jones Grill &amp; Restaurants</a></h2>
+                            <span class="address">Brooklyn, New York</span>
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark" data-toggle="tooltip"
+                               data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="../images/img_3.jpg" alt="Free Website Template by Free-Template.co"
+                                 class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a class="px-3 mb-3 category" href="#">Events</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Live Band</a></h2>
+                            <span class="address">West Orange, New York</span>
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark" data-toggle="tooltip"
+                               data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="../images/img_4.jpg" alt="Free Website Template by Free-Template.co"
+                                 class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a class="px-3 mb-3 category" href="#">Others</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Gourmet Coffees</a></h2>
+                            <span class="address">New York City</span>
+                        </div>
+                        <div class="listing-item-content">
+                            <span href="listings-single.html" class="bookmark">
+                                <span class="icon-heart"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="../images/img_5.jpg" alt="Free Website Template by Free-Template.co"
+                                 class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
+                            <a class="px-3 mb-3 category" href="#">Spa</a>
+                            <h2 class="mb-1"><a href="listings-single.html">La Italia Spa</a></h2>
+                            <span class="address">Italy</span>
+                        </div>
+
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="../images/img_6.jpg" alt="Free Website Template by Free-Template.co"
+                                 class="img-fluid">
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
+                            <a class="px-3 mb-3 category" href="#">Stores</a>
+                            <h2 class="mb-1"><a href="listings-single.html">Super Market Mall</a></h2>
+                            <span class="address">West Orange, New York</span>
+                        </div>
+                        <div class="listing-item-content">
+                            <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

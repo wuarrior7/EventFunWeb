@@ -1,0 +1,10 @@
+﻿@model IEnumerable<EventFunWeb.t主題類型>
+
+
+
+    <a class="col-lg-3" href=@Url.Action("ForumArticleList", "Forum", new {topicName = "全部" }) style="color:black">全部</a>
+@foreach (var x in Model)
+{
+    <a  class="col-lg-3" href=@Url.Action("ForumArticleList", "Forum", new {topicName = x.f主題名稱 }) style="color:black">@x.f主題名稱</a>
+    
+}

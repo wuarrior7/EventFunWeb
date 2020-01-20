@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<div class="row" style="margin-top:50px;">
+    <div class="col-md-2">
+        <div class="right-divider hidden-sm hidden-xs">
+            <div class="profile-pic">
+                @if (Model.f會員照片 == null)
+                {
+                    <p>
+                        <img src="~/Content/images/company/xx.png" style="width:100px ;height:100px ;">
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        <img src="~/Content/images/member/@Model.f會員照片" style="width:100px ;height:100px ;">
+                    </p>
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10" style="">
+        <h4>一般會員</h4>
+        <hr />
+        <p>
+            會員名稱：
+            <span>@Model.f會員名稱</span>
+        </p>
+        <p>
+            會員帳號：
+            <span>@Model.f會員帳號</span>
+        </p>
+        <p>
+            會員性別：@if (Model.f會員性別 == true)
+            {
+                <span>男</span>}
+            else
+            {
+                <span>女</span>}
+        </p>
+        <p>
+            會員信箱：
+            <span>@Model.f會員信箱</span>
+        </p>
+        <p>
+            會員電話：
+            <span>@Model.f會員行動電話</span>
+        </p>
+        <p>
+            會員地址：
+            <span>@Model.f地址</span>
+        </p>
+        <p>
+            帳號創建日期：
+            <span>@Model.f創建時間</span>
+        </p>
+        <p>
+            簡介：
+            <span>@Model.f會員簡介</span>
+        </p>
+
+    </div>
+
+</div>

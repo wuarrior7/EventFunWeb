@@ -1,0 +1,90 @@
+﻿@model EventFunWeb.t一般會員
+@{
+    Layout = null;
+}
+
+<div style="margin-top:50px;">
+    <div style="width:100%">
+        <h4>資料修改</h4>
+        <hr />
+    </div>
+    <div>
+        <form action="~/gMemberData/gMemberEdit" enctype="multipart/form-data" method="post">
+            <div class="row form-group">
+                <div class="col-md-12">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.f會員編號)
+                    @if (Model.f會員照片 == null)
+                    {
+                        <p>
+                            <img src="~/Content/images/company/xx.png" style="width:200px ;height:200px" id="img">
+                        </p>
+                    }
+                    else
+                    {
+                        <p>
+                            <img src="~/Content/images/member/@Model.f會員照片" style="width:200px ;height:200px" id="img">
+                        </p>
+                    }
+                    <input type="file" name="photo" id="imgIpt" />
+                    <input type="hidden" name="f會員照片" value="@Model.f會員照片" />
+                </div>
+                <div class="col-md-5">
+
+
+                    @Html.Label("帳號", htmlAttributes: new { @class = "control-label" })
+                    <input type="text" name="f會員帳號" readonly="readonly" value="@Model.f會員帳號" class="form-control" />
+
+                    @Html.Label("創建日期", htmlAttributes: new { @class = "control-label" })
+                    <input type="text" name="ff創建時間" readonly="readonly" value="@Model.f創建時間" class="form-control" />
+
+                    @Html.Label("性別", htmlAttributes: new { @class = "control-label" })
+                    @if (Model.f會員性別 == true)
+                    {
+                        <input type="text" value="男" readonly="readonly" class="form-control" />
+                    }
+                    else
+                    {
+                        <input type="text" value="女" readonly="readonly" class="form-control" />
+                    }
+
+                    @Html.Label("名稱", htmlAttributes: new { @class = "control-label" })
+                    <input type="text" name="f會員名稱" readonly="readonly" value="@Model.f會員名稱" class="form-control" />
+
+                    @Html.Label("電話", htmlAttributes: new { @class = "control-label" })
+                    <input type="text" name="ff會員行動電話" readonly="readonly" value="@Model.f會員行動電話" class="form-control" />
+
+                    @Html.Label("信箱", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <input type="email" name="f會員信箱" value="@Model.f會員信箱" class="form-control" required="required" />
+                    <input type="hidden" name="f帳號狀態" value="@Model.f帳號狀態" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.f會員信箱, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-5">
+                    @Html.Label("居住城市", "f城市編號", htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownList("f城市編號", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.f城市編號, "", new { @class = "text-danger" })
+
+                    @Html.Label("居住地區", "f郵遞區號", htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownList("f郵遞區號", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.f郵遞區號, "", new { @class = "text-danger" })
+
+                    @Html.Label("住家地址", htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.f地址, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.f地址, "", new { @class = "text-danger" })
+
+                    @Html.Label("簡介", htmlAttributes: new { @class = "control-label" })
+                    <textarea name="f會員簡介" style="width:100%;height:300px;" class="form-control">@Model.f會員簡介</textarea>
+                    @Html.ValidationMessageFor(model => model.f會員簡介, "", new { @class = "text-danger" })
+
+
+                </div>
+                <div class="col-md-12">
+                    @Html.ActionLink("儲存", "_gMemberEdit", new { id = Model.f會員編號 }, new { @class = "btn btn-primary", })
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
